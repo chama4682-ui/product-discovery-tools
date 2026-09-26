@@ -1,5 +1,53 @@
 [
  {
+  "id": "hn-49856774",
+  "source": "hn",
+  "title_en": "Show HN: HomeAI.design – Visualize interior design ideas from a photo",
+  "title_zh": "Show HN: HomeAI.design – 从照片可视化室内设计创意",
+  "text_en": "Hi HN,<p>I’m an indie developer and I recently built HomeAI.design.<p>The original idea was simple. When people renovate a room, it&#x27;s difficult to imagine what a different design would actually look like in their own space.<p>So I built a tool where you upload a room photo and generate different interior design ideas.<p>I&#x27;m still figuring out what users really need, especially compared with other AI interior design tools.<p>Would love feedback on the product and the generated results.",
+  "summary_zh": "独立开发者展示HomeAI.design，允许用户上传房间照片生成多种室内设计方案，以帮助用户直观预览改造效果，并征求用户对该产品功能及生成效果的反馈意见",
+  "url": "https://homeai.design/",
+  "author": "benny0814",
+  "created_at": "2026-09-26T14:13:19Z",
+  "captured_at": "2026-09-26T14:29:45.828170Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "将照片转化为室内设计方案的可视化工具",
+   "category": "consumer-tech",
+   "score": 5,
+   "willingness_to_pay": "weak",
+   "reason_zh": "这是独立开发者展示其AI室内设计可视化工具，试图解决用户难以想象改造后效果的问题。帖子旨在寻求反馈而非表达需求，且该功能市场竞争激烈，普通消费者为此付费的意愿和频率较低"
+  }
+ },
+ {
+  "id": "hn-49856688",
+  "source": "hn",
+  "title_en": "Show HN: Minimal dbt-style SQL builds with DuckDB and Make",
+  "title_zh": "Show HN: 基于DuckDB和Make的极简dbt风格SQL构建工具",
+  "text_en": "&quot;DuckDB and Make are all you need!&quot;<p>I love the ergonomics of dbt for building reproducible data pipelines with DuckDB -- particularly the ability to define output tables as individual `SELECT` queries and have them refer to each other -- but have always found the configuration and boilerplate excessive for the projects I work on. With the recent Rust rewrite of dbt Core, now seemed like a good time to consider the bits I actually need&#x2F;use.<p>Recently, I realised that DuckDB itself can parse SQL queries into an AST representation using the `json_serialize_sql` function. duckdb.mk (~250 lines `include`d in your Makefile) takes advantage of this to generate Make rules for your models automatically, and works with both DuckDB 1.4.1+ and 2.0 preview.<p>Write a neat directory of SQL statements querying local and remote data, get a neat directory of Parquet files (plus a Mermaid diagram of the DAG) back. When you rebuild a table, duckdb.mk keeps track of dependencies (including remote resources queried over HTTP) and only rebuilds those that need it.<p>This system is a distillation of various ad hoc solutions cooked up while working on data journalism and research projects over the past 5-10 years, most recently doing Observable-based research notebooks with Data Desk: <a href=\"https:&#x2F;&#x2F;research.datadesk.eco&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;research.datadesk.eco&#x2F;</a> It&#x27;s very much a starting point for further development, and contributions in line with the general minimalist philosophy are very welcome!<p>Check out the `example&#x2F;` directory for a simple test project that attributes satellite-observed methane plumes to oil and gas infrastructure using public data.",
+  "summary_zh": "开发者利用DuckDB的AST解析功能和Makefile构建了一个轻量级数据管道工具，替代dbt中繁琐的配置，支持自动依赖追踪和Parquet输出，旨在简化数据新闻和研究项目中的数据处理流程",
+  "url": "https://github.com/ltrgoddard/duckdb.mk",
+  "author": "ltrg",
+  "created_at": "2026-09-26T14:06:08Z",
+  "captured_at": "2026-09-26T14:29:45.828170Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "寻求更轻量级、低配置的数据管道构建工具，以替代繁琐的dbt工作流",
+   "category": "dev-tools",
+   "score": 4,
+   "willingness_to_pay": "weak",
+   "reason_zh": "这是开发者分享自研的轻量级DuckDB数据管道工具，旨在解决dbt配置繁琐的痛点。虽然隐含了部分用户存在对轻量级数据工具的需求，但帖子本身是解决方案展示而非需求表达，且受众为特定领域的开发者，通用付费意愿有限"
+  }
+ },
+ {
   "id": "hn-49855628",
   "source": "hn",
   "title_en": "A Slice of Europe in the Heart of Lucknow – Oranje Castle",
