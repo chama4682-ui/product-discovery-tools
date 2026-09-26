@@ -4,6 +4,13 @@
     "keywords": ["pain point", "struggle", "frustrating", "wish there was", "Ask HN"],
     "max_per_keyword": 30
   },
+  "reddit": {
+    "subreddits": ["SaaS", "smallbusiness", "Entrepreneur", "startup", "microsaas"],
+    "max_per_sub": 30
+  },
+  "ph": {
+    "max_posts": 30
+  },
   "model": "agnes-3.0-flash",
   "batch_size": 25,
   "retention_days": 90

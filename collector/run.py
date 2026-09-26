@@ -7,6 +7,8 @@ from collector import load_config
 from collector.analyze import analyze_records
 from collector.dedupe import merge_records
 from collector.fetch_hn import fetch_hn
+from collector.fetch_ph import fetch_ph
+from collector.fetch_reddit import fetch_reddit
 from collector.models import Record
 
 _ROOT = Path(__file__).resolve().parent.parent
@@ -32,7 +34,7 @@ def main(dry_run: bool = False) -> int:
         existing = [Record.model_validate(r) for r in json.loads(DATA_FILE.read_text(encoding="utf-8"))]
 
     existing_ids = {r.id for r in existing}
-    fetchers = {"hn": fetch_hn}
+    fetchers = {"hn": fetch_hn, "reddit": fetch_reddit, "ph": fetch_ph}
     new_records: list[Record] = []
     for source in config["enabled_sources"]:
         if source not in fetchers:
