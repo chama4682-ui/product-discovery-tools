@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>需求雷达 · 产品机会收集器</title>
+<style>
+  :root { --bg:#f5f6f8; --card:#fff; --line:#e3e6ea; --ink:#1c2330; --muted:#68738a; --brand:#2456e6; --star:#e8a417; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.6 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif; }
+  header { background:var(--card); border-bottom:1px solid var(--line); padding:14px 20px; }
+  h1 { margin:0 0 4px; font-size:20px; }
+  header p { margin:0; color:var(--muted); font-size:13px; }
+  .bar { display:flex; flex-wrap:wrap; gap:8px; padding:12px 20px; position:sticky; top:0; background:var(--bg); z-index:5; }
+  .bar input, .bar select { padding:7px 10px; border:1px solid var(--line); border-radius:8px; background:var(--card); font-size:14px; }
+  .bar input[type=search] { flex:1 1 180px; min-width:140px; }
+  .bar label { display:flex; align-items:center; gap:5px; font-size:13px; color:var(--muted); background:var(--card); border:1px solid var(--line); border-radius:8px; padding:0 10px; }
+  main { max-width:860px; margin:0 auto; padding:0 12px 60px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:14px 16px; margin:10px 0; }
+  .card.read { opacity:.55; }
+  .row1 { display:flex; align-items:flex-start; gap:10px; }
+  .score { flex:none; width:44px; height:44px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:18px; color:#fff; background:#8a93a6; }
+  .score.hi { background:#1a9e57; } .score.mid { background:#d9930d; }
+  .title { font-weight:600; font-size:16px; cursor:pointer; }
+  .demand { color:var(--brand); margin-top:4px; }
+  .meta { display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; font-size:12px; color:var(--muted); align-items:center; }
+  .tag { background:#eef1f6; border-radius:6px; padding:1px 8px; }
+  .tag.pay-strong { background:#fdeaea; color:#c0392b; } .tag.pay-weak { background:#fdf3e0; color:#b9770e; }
+  .src { background:#e8edfb; color:#2456e6; }
+  .detail { display:none; margin-top:10px; border-top:1px dashed var(--line); padding-top:8px; font-size:14px; }
+  .card.open .detail { display:block; }
+  .detail h4 { margin:8px 0 2px; font-size:13px; color:var(--muted); }
+  .detail a { color:var(--brand); }
+  .btns { margin-top:10px; display:flex; gap:8px; }
+  .btns button { border:1px solid var(--line); background:var(--card); border-radius:8px; padding:4px 12px; cursor:pointer; font-size:13px; }
+  .btns button.on { border-color:var(--brand); color:var(--brand); }
+  .btns button.star.on { border-color:var(--star); color:var(--star); }
+  .empty { text-align:center; color:var(--muted); padding:60px 0; }
+  .count { font-size:13px; color:var(--muted); padding:0 20px 4px; }
+  @media (max-width:600px){ .bar{position:static;} h1{font-size:17px;} }
+</style>
+</head>
+<body>
+<header>
+  <h1>需求雷达</h1>
+  <p>每天自动从海外社区收集真实需求与痛点，AI 提炼打分</p>
+</header>
+<div class="bar">
+  <input type="search" id="q" placeholder="搜索需求关键词…">
+  <select id="src"><option value="">全部来源</option></select>
+  <select id="cat"><option value="">全部类别</option></select>
+  <select id="min"><option value="0">全部评分</option><option value="6">≥6</option><option value="8">≥8</option></select>
+  <label><input type="checkbox" id="onlyStar">只看感兴趣</label>
+  <label><input type="checkbox" id="hideRead" checked>隐藏已读</label>
+</div>
+<div class="count" id="count"></div>
+<main id="list"></main>
+<script>
+const read = new Set(JSON.parse(localStorage.getItem('pdt_read') || '[]'));
+const star = new Set(JSON.parse(localStorage.getItem('pdt_star') || '[]'));
+let records = [];
+
+const esc = s => (s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const persist = (k, set) => localStorage.setItem(k, JSON.stringify([...set]));
+
+function fillSelect(id, values) {
+  const sel = document.getElementById(id);
+  [...values].sort().forEach(v => {
+    const o = document.createElement('option'); o.value = v; o.textContent = v; sel.appendChild(o);
+  });
+}
+
+function badge(record) {
+  const pay = record.ai.willingness_to_pay;
+  return pay === 'strong' ? '<span class="tag pay-strong">付费意愿强</span>'
+       : pay === 'weak' ? '<span class="tag pay-weak">付费意愿弱</span>'
+       : '<span class="tag">未见付费意愿</span>';
+}
+
+function card(record) {
+  const el = document.createElement('div');
+  el.className = 'card' + (read.has(record.id) ? ' read' : '');
+  const a = record.ai, m = record.metrics || {};
+  const lvl = a.score >= 8 ? 'hi' : a.score >= 6 ? 'mid' : '';
+  const d = new Date(record.created_at).toLocaleDateString('zh-CN');
+  el.innerHTML = `
+    <div class="row1">
+      <div class="score ${lvl}">${a.score}</div>
+      <div style="flex:1">
+        <div class="title">${esc(record.title_zh || record.title_en)}</div>
+        <div class="demand">需求：${esc(a.demand_zh)}</div>
+        <div class="meta">
+          <span class="tag src">${esc(record.source)}</span>
+          <span class="tag">${esc(a.category)}</span>${badge(record)}
+          <span>👍${m.upvotes ?? 0} 💬${m.comments ?? 0} · ${d}</span>
+        </div>
+      </div>
+    </div>
+    <div class="detail">
+      <h4>中文摘要</h4><div>${esc(record.summary_zh)}</div>
+      <h4>评分理由</h4><div>${esc(a.reason_zh)}</div>
+      <h4>英文原文</h4><div>${esc(record.title_en)}</div>
+      ${record.text_en ? `<div>${esc(record.text_en.slice(0, 600))}…</div>` : ''}
+      <div style="margin-top:6px"><a href="${esc(record.url)}" target="_blank" rel="noopener">查看原帖 ↗</a></div>
+    </div>
+    <div class="btns">
+      <button class="star ${star.has(record.id) ? 'on' : ''}">★ 感兴趣</button>
+      <button class="rd ${read.has(record.id) ? 'on' : ''}">${read.has(record.id) ? '已读' : '标记已读'}</button>
+    </div>`;
+  el.querySelector('.title').onclick = () => el.classList.toggle('open');
+  el.querySelector('.star').onclick = e => {
+    star.has(record.id) ? star.delete(record.id) : star.add(record.id);
+    persist('pdt_star', star); e.target.classList.toggle('on'); render();
+  };
+  el.querySelector('.rd').onclick = e => {
+    read.has(record.id) ? read.delete(record.id) : read.add(record.id);
+    persist('pdt_read', read); e.target.classList.toggle('on'); render();
+  };
+  return el;
+}
+
+function visible() {
+  const q = document.getElementById('q').value.trim().toLowerCase();
+  const src = document.getElementById('src').value;
+  const cat = document.getElementById('cat').value;
+  const min = +document.getElementById('min').value;
+  const onlyStar = document.getElementById('onlyStar').checked;
+  const hideRead = document.getElementById('hideRead').checked;
+  return records
+    .filter(r => r.ai && r.ai.is_demand)
+    .filter(r => !src || r.source === src)
+    .filter(r => !cat || r.ai.category === cat)
+    .filter(r => r.ai.score >= min)
+    .filter(r => !onlyStar || star.has(r.id))
+    .filter(r => !hideRead || !read.has(r.id))
+    .filter(r => !q || [r.title_zh, r.demand_zh ?? r.ai.demand_zh, r.summary_zh, r.title_en]
+      .some(t => (t || '').toLowerCase().includes(q)))
+    .sort((a, b) => b.ai.score - a.ai.score || new Date(b.created_at) - new Date(a.created_at));
+}
+
+function render() {
+  const list = document.getElementById('list');
+  const shown = visible();
+  document.getElementById('count').textContent = `共 ${records.length} 条，显示 ${shown.length} 条`;
+  list.replaceChildren(...shown.map(card));
+}
+
+function emptyState(msg) {
+  document.getElementById('count').textContent = '';
+  document.getElementById('list').innerHTML = `<div class="empty">${msg}</div>`;
+}
+
+for (const [id, ev] of [['q', 'input'], ['src', 'change'], ['cat', 'change'], ['min', 'change'], ['onlyStar', 'change'], ['hideRead', 'change']]) {
+  document.getElementById(id).addEventListener(ev, render);
+}
+
+fetch('/data/opportunities.json')
+  .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+  .then(data => {
+    records = data;
+    if (!records.some(r => r.ai && r.ai.is_demand)) return emptyState('还没有符合条件的需求记录，等下一轮采集后回来看看。');
+    fillSelect('src', [...new Set(records.map(r => r.source))]);
+    fillSelect('cat', [...new Set(records.filter(r => r.ai).map(r => r.ai.category))]);
+    render();
+  })
+  .catch(() => emptyState('数据加载失败：还没有采集到数据，或页面未部署在站点根目录。'));
+</script>
+</body>
+</html>
