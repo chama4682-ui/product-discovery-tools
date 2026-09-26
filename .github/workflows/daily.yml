@@ -1,0 +1,29 @@
+name: daily-collect
+
+on:
+  schedule:
+    - cron: "0 22 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt -r requirements-dev.txt
+      - run: pytest -q
+      - run: python -m collector run
+        env:
+          AGNES_API_KEY: ${{ secrets.AGNES_API_KEY }}
+      - run: |
+          git config user.name "Ydzr_10000"
+          git config user.email "chama4682@gmail.com"
+          git add data/opportunities.json
+          git diff --cached --quiet || git commit -m "data: 每日采集 $(date -u +%F)"
+          git push
