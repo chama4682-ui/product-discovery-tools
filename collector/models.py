@@ -1,14 +1,14 @@
 from datetime import datetime
 from typing import Literal
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class AIResult(BaseModel):
     is_demand: bool
     demand_zh: str
     category: str
-    score: int
+    score: int = Field(ge=0, le=10)
     willingness_to_pay: Literal["strong", "weak", "none"]
     reason_zh: str
 

@@ -52,3 +52,14 @@ def test_records_older_than_retention_are_dropped():
 
 def test_empty_inputs_return_empty():
     assert merge_records([], [], retention_days=90) == []
+
+
+def test_score_out_of_range_rejected():
+    import pytest as _pytest
+    from pydantic import ValidationError
+
+    with _pytest.raises(ValidationError):
+        AIResult(
+            is_demand=True, demand_zh="d", category="c", score=99,
+            willingness_to_pay="weak", reason_zh="r",
+        )
