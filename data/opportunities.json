@@ -1,0 +1,746 @@
+[
+ {
+  "id": "hn-49855628",
+  "source": "hn",
+  "title_en": "A Slice of Europe in the Heart of Lucknow – Oranje Castle",
+  "title_zh": "勒克瑙心脏地带的欧洲一角——Oranje Castle",
+  "text_en": "Not every residential project tries something different — Oranje Castle does. Located in Gomti Nagar Extension, this 7.2-acre development is designed around a European castle theme, giving it a distinct look and feel compared to typical apartment projects in Lucknow. It features 16 towers standing 17 floors tall, housing 416 units altogether. The location works well too, with quick access to Shaheed Path, Ekana Cricket Stadium, Gomti Nagar Club, schools, hospitals, and the airport. RERA registered (PRJ6917).<p>Book Your Free Site Visit Today! \n Call Us: 9220646888\n Website:  https:&#x2F;&#x2F;oranjecastlelucknow.in&#x2F;",
+  "summary_zh": "推广位于勒克瑙的一个欧式城堡主题住宅项目，强调其位置便利性和设计特色。",
+  "url": "https://news.ycombinator.com/item?id=49855628",
+  "author": "oranjecastle",
+  "created_at": "2026-09-26T11:47:16Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "无",
+   "category": "finance",
+   "score": 0,
+   "willingness_to_pay": "none",
+   "reason_zh": "这是一条房地产项目推广广告，不涉及解决用户痛点的需求。"
+  }
+ },
+ {
+  "id": "hn-49855468",
+  "source": "hn",
+  "title_en": "Show HN: I built a tool that gives any website an API and MCP",
+  "title_zh": "Show HN: 我构建了一个为任何网站提供API和MCP的工具",
+  "text_en": "Anyone else run into this problem?<p>I built staaake Meets (staaakemeets.com) because we run side tech events around the world. You create an event once and it can be shared to Luma, Meetup and Eventbrite. I connected each platform through their API and it works great. (not the problem)<p>Then I wanted to add more platforms, like Partiful, and realized some don&#x27;t have a public API. I started noticing the same problem with other projects too. There are still a lot of big products that don&#x27;t have an API or even a developer page.<p>And now with Claude, ChatGPT and AI agents, it feels like this is becoming a bigger problem. If software and agents are going to interact with products directly, they need a way to access them.<p>So I built staaake Connector (staaakeconnector.com). You connect your backend, choose what you want to make available, and it creates an API and MCP for your product. It can also give you webhooks and an SDK.<p>I also turned my community into a network where humans, products and agents can find and connect with each other.<p>It&#x27;s live now. I&#x27;d really like feedback from people building agents or products that need to interact with other software.<p>Its been a while i used Hackernews, lets see if its still alive!",
+  "summary_zh": "作者构建了一个工具，允许用户连接后端并为任意产品生成API和MCP接口，解决了许多网站缺乏公开API导致AI代理无法交互的问题。",
+  "url": "https://news.ycombinator.com/item?id=49855468",
+  "author": "staaake",
+  "created_at": "2026-09-26T11:22:37Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 5,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "为没有公开API的网站快速生成API和MCP接口，以便AI代理可以访问。",
+   "category": "dev-tools",
+   "score": 7,
+   "willingness_to_pay": "strong",
+   "reason_zh": "解决了许多SaaS产品缺乏开发者API的问题，随着AI代理普及，连接层需求强烈，但受众主要是开发者。"
+  }
+ },
+ {
+  "id": "hn-49855239",
+  "source": "hn",
+  "title_en": "Show HN: Catescape",
+  "title_zh": "Show HN: Catescape",
+  "text_en": "Hey HN, this daily puzzle game is inspired by an old flash game &quot;trap the cat&quot; I played ~20 years ago. A friend challenged me to make a small game, and I decided to have a stab. I included special tiles to make it a bit more interesting, but honestly the challenge to do it in as few moves as possible each day is what has kept it interesting for me.<p>If you want to play a bit more, I just added an archive so past days are accessible.<p>Let me know what you think, and if you have any comments or suggestions I&#x27;d love to hear them :)",
+  "summary_zh": "分享了一个受闪游启发的每日谜题游戏Catescape，旨在挑战最少步数通关。",
+  "url": "https://catescape.dev/",
+  "author": "MCArth",
+  "created_at": "2026-09-26T10:42:15Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 3,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "无",
+   "category": "entertainment",
+   "score": 0,
+   "willingness_to_pay": "none",
+   "reason_zh": "这是一个简单的每日谜题游戏，属于娱乐展示，未表达深层痛点。"
+  }
+ },
+ {
+  "id": "hn-49855152",
+  "source": "hn",
+  "title_en": "Show HN: CStructSharp – C-struct (de)serialization for C# and JavaScript (WASM)",
+  "title_zh": "Show HN: CStructSharp – C#和JavaScript (WASM)的C结构体(反)序列化",
+  "text_en": "I&#x27;ve been working on this for a while now (I made a POC for myself some years ago which I didn&#x27;t release. But AI helped me a lot to finally complete&#x2F;polish it).<p>Inspired by digital forensic toolkits, this library allows a user to take a c-struct definition and use that to serialize an deserialize binary data.<p>It is a flexible library which features modern c# mechanisms and conventions. I tried to make it easy to use, easy to understand, performant and powerful. You can both use it to parse and use runtime user defined structures as well as use the C# source generator feature to build parsers&#x2F;serializers at compile time.<p>I also build and published a WASM version&#x2F;javascript library which is used to showcase the features of the library (see the binary inspector demo app (<a href=\"https:&#x2F;&#x2F;vvollers.github.io&#x2F;cstructsharp&#x2F;inspector&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;vvollers.github.io&#x2F;cstructsharp&#x2F;inspector&#x2F;</a>) which you can use to run the library against various files, it includes sample definitions for many file formats). The library is quite usable on its own.<p>I&#x27;m interested to hear your thoughts and if you have any questions feel free to ask.",
+  "summary_zh": "发布了一个库CStructSharp，允许用户根据C结构定义序列化和反序列化二进制数据，支持WASM。",
+  "url": "https://github.com/vvollers/cstructsharp",
+  "author": "plusmax1",
+  "created_at": "2026-09-26T10:31:25Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "简化C结构体在C#和JS间的序列化/反序列化，特别是针对数字取证需求。",
+   "category": "dev-tools",
+   "score": 5,
+   "willingness_to_pay": "weak",
+   "reason_zh": "数字取证和底层开发人员面临二进制解析痛点，虽受众窄但专业需求刚性较强。"
+  }
+ },
+ {
+  "id": "hn-49854851",
+  "source": "hn",
+  "title_en": "Ask HN: Indie hackers on X (Twitter) feels like a mega bubble these days",
+  "title_zh": "Ask HN: 如今X（Twitter）上的独立黑客圈子感觉像一个巨大的泡沫",
+  "text_en": "Indie hacker group on X feels right now just 10 guys sucking up to each other.<p>Top indie hackers are not promoting anything noble. Not highlighting any new indie hackers.<p>I remember a time when 5 years ago indie hackers were supporting upcoming builders and talked about variety of things.<p>These days it&#x27;s all circle jerking between top 10-20 builders.<p>Good self reminder to not be like them as I mature in this journey.",
+  "summary_zh": "作者抱怨X平台上的独立黑客圈子变得狭隘，缺乏对新手的扶持，形成了小团体奉承文化。",
+  "url": "https://news.ycombinator.com/item?id=49854851",
+  "author": "sankalpdomore",
+  "created_at": "2026-09-26T09:36:53Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 5,
+   "comments": 1
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "无",
+   "category": "marketing",
+   "score": 0,
+   "willingness_to_pay": "none",
+   "reason_zh": "这是关于社交媒体社区生态变化的抱怨/观察，未提出具体的产品解决方案需求。"
+  }
+ },
+ {
+  "id": "hn-49853952",
+  "source": "hn",
+  "title_en": "Anybody has experience with maintaining self hosted Git?",
+  "title_zh": "有人有维护自托管Git的经验吗？",
+  "text_en": "I have used github, gitlab and bitbucket etc. Now all of them seems to be training all the code. How do one retain privacy while not paying for enterprise plans?<p>I know of gitlab offering a self hosted plan, but not really sure if that is worth it and how do we go about it. I am asking for a small team, wherre we don&#x27;t have dedicated people to manage things like backups, uptime etc manually. we can do it but would ideally see what&#x27;s the best way. and is there a downside of this approach except for pipelines.",
+  "summary_zh": "用户询问如何维护自托管Git以保留代码隐私，避免支付高额企业费用，并关心运维复杂性。",
+  "url": "https://news.ycombinator.com/item?id=49853952",
+  "author": "tusharmaroo",
+  "created_at": "2026-09-26T06:57:20Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 1
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "寻求低成本且私密的自托管Git解决方案，以替代正在训练代码的商业平台。",
+   "category": "dev-tools",
+   "score": 6,
+   "willingness_to_pay": "weak",
+   "reason_zh": "小团队对代码隐私和企业级定价敏感，存在替代现有商业Git服务的真实痛点。"
+  }
+ },
+ {
+  "id": "hn-49853093",
+  "source": "hn",
+  "title_en": "Ask HN: ML-Based Tool Feedback",
+  "title_zh": "Ask HN: 基于ML的工具反馈",
+  "text_en": "Hello all,\nI have built this free, open-source Flask-based web application https:&#x2F;&#x2F;diabetesriskanalyzer.org&#x2F; for a high-school science competition. The objective is to predict diabetes risk using lifestyle markers (BP, BMI, age etc) and I have deployed the model on AWS.<p>Here is the research paper I have published at NHSJS: https:&#x2F;&#x2F;nhsjs.com&#x2F;wp-content&#x2F;uploads&#x2F;2026&#x2F;07&#x2F;Using-Lifestyle-Markers-and-Machine-Learning-to-Detect-Diabetes.pdf.<p>My github repository for this project is here: https:&#x2F;&#x2F;github.com&#x2F;Armoredpawn&#x2F;Diabetes-Likelihood<p>Please provide me feedback on the utility and other aspects for this web application.<p>Thank you!",
+  "summary_zh": "展示了一个用于高中生科学比赛的糖尿病风险预测Web应用，寻求代码和实用性反馈。",
+  "url": "https://news.ycombinator.com/item?id=49853093",
+  "author": "asrivastava1125",
+  "created_at": "2026-09-26T04:04:09Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "无",
+   "category": "health",
+   "score": 0,
+   "willingness_to_pay": "none",
+   "reason_zh": "这是一个学生项目的展示和反馈请求，并非表达市场痛点的商业需求。"
+  }
+ },
+ {
+  "id": "hn-49852847",
+  "source": "hn",
+  "title_en": "Ask HN: Is multi-model redundancy now a compliance requirement for small teams?",
+  "title_zh": "Ask HN: 多模型冗余现在是小团队的合规要求吗？",
+  "text_en": "I&#x27;ve been following the Anthropic supply-chain ruling discussion here, and one thing keeps nagging at me as someone learning to build on Next.js while studying LLM app architecture: multi-model redundancy quietly stopped being an optimization and became a compliance requirement for anyone selling to the US government or large enterprises.<p>A single-model vendor is now officially a supply-chain risk. That makes sense at scale, but what does it actually mean for a small team? Abstracting calls behind one interface sounds easy until models diverge on tool calling, structured outputs, context windows, and latency. And who maintains the eval suite and fallback logic once you support two or three providers?<p>For those of you running LLM features in production: do you genuinely route across providers, or keep one hot standby? Is an abstraction layer worth it early, or does it just flatten every model to the weakest one? Curious what patterns actually hold up when vendor lock-in becomes a legal problem rather than just a cost one.",
+  "summary_zh": "询问小团队如何在LLM应用中实现多模型冗余以满足合规要求，讨论抽象层的维护成本与收益。",
+  "url": "https://news.ycombinator.com/item?id=49852847",
+  "author": "weiqi554177834",
+  "created_at": "2026-09-26T03:12:00Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 1
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "寻找在LLM应用中实施多模型冗余的合规模式，以应对供应链风险。",
+   "category": "dev-tools",
+   "score": 7,
+   "willingness_to_pay": "strong",
+   "reason_zh": "受法律法规驱动的合规需求，中小企业面临合规压力，对降低复杂度的抽象层有付费意愿。"
+  }
+ },
+ {
+  "id": "hn-49851853",
+  "source": "hn",
+  "title_en": "Show HN: Tenjin – A Jev based x402 tool router for Claude Code",
+  "title_zh": "Show HN: Tenjin – 基于Jev的Claude Code x402工具路由器",
+  "text_en": "Hey HN! We&#x27;re Ali And Vrajang. We just created a tool router for Claude Code built on Jev. It basically gives your agent superpowers.<p>You keep working like you always do. When Jev thinks a tool would help, it provides it to your agent and your agent uses it. It watches your masked prompts, session context, web searches and subagent tasks, so it knows exactly when to intervene.<p>For now, tools come from a curated library. It&#x27;s the basics like Exa, Firecrawl, Context7,  but we&#x27;re planning to add more soon. Let us know what you&#x27;d like added!<p>Everything runs on x402, so you don&#x27;t set up each tool or juggle API keys. Your wallet pays a cent or two per call and that&#x27;s it :)<p>Please expect some rough edges as it is just in alpha for now.<p>Would love to know what you think!<p>Here is our website: <a href=\"https:&#x2F;&#x2F;tenjin.sh\" rel=\"nofollow\">https:&#x2F;&#x2F;tenjin.sh</a> and GitHub repo: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;BackTrackCo&#x2F;tenjin-agent\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;BackTrackCo&#x2F;tenjin-agent</a> for those interested.",
+  "summary_zh": "介绍Tenjin，一个基于Jev的Claude Code工具路由器，通过x402协议让代理按需调用工具，无需管理密钥。",
+  "url": "https://github.com/BackTrackCo/tenjin-agent",
+  "author": "AliAbdoli",
+  "created_at": "2026-09-26T00:25:57Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 2,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "简化Claude Code的工具集成，通过统一路由和支付机制消除API密钥管理。",
+   "category": "dev-tools",
+   "score": 6,
+   "willingness_to_pay": "weak",
+   "reason_zh": "针对Agent开发中的工具连接繁琐痛点，使用x402支付协议简化集成，受众为AI开发者。"
+  }
+ },
+ {
+  "id": "hn-49851739",
+  "source": "hn",
+  "title_en": "Show HN: KISS – A highly performant agent harness inspired off Pi built in Rust",
+  "title_zh": "Show HN: KISS – 一个受Pi启发、用Rust构建的高性能代理框架",
+  "text_en": "I built myself a highly performant agent harness built in Rust that&#x27;s quite heavily inspired by Pi with a few extra addons like optional sub-agents, dynamic workflows, MCP, ACP, WebMCP.<p>It also has opt-in Jev support for dynamic compaction and dynamic reasoning&#x2F;effort changing mid-turn.<p>You can also embed it in your own projects. There are SDKs for Rust, Python, TypeScript, and WASM, plus JSONL RPC and WebSocket RPC for any other language. The WASM build runs the full agent loop in the browser without needing a server.<p>I&#x27;ve been daily driving this harness at work and personal day to day because I have been quite happy with Pi but unhappy with its performance so this is built on the exact same principles of Pi.<p>Performance: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;racetozero&#x2F;kiss#performance\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;racetozero&#x2F;kiss#performance</a><p>Please feel free to provide any feedback. All feedback is appreciated!",
+  "summary_zh": "展示了一个用Rust构建的高性能AI代理框架KISS，支持MCP、动态工作流，并提供了多语言SDK。",
+  "url": "https://github.com/racetozero/kiss",
+  "author": "racetozero",
+  "created_at": "2026-09-26T00:05:09Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 2,
+   "comments": 2
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "需要高性能的Rust编写AI代理运行框架，以弥补现有工具的性能不足。",
+   "category": "dev-tools",
+   "score": 6,
+   "willingness_to_pay": "weak",
+   "reason_zh": "针对AI代理开发者的特定性能痛点，受众垂直但愿意为提升效率的工具付费。"
+  }
+ },
+ {
+  "id": "hn-49850874",
+  "source": "hn",
+  "title_en": "Show HN: Wallstreetclaws.com – Create AI Agents for Trading",
+  "title_zh": "Show HN: Wallstreetclaws.com – 创建AI交易代理",
+  "text_en": "I wanted to try out some AI driven trading strategies so created this platform (<a href=\"https:&#x2F;&#x2F;wallstreetclaws.com\" rel=\"nofollow\">https:&#x2F;&#x2F;wallstreetclaws.com</a>) where people can easily create and deploy AI agents for trading.<p>It supports two types of Agents:<p>1. Cortex: Fully agentic strategy execution. An LLM will run your system prompt with access to market data, web search and simulated market APIs.<p>2. Flux: Define advanced quant strategies using indicators, entry conditions, exit conditions, risk management, etc. You can also run backtests on these strategies.<p>You can also optionally connect your Robinhood agent account to your Cortex agents.<p>There&#x27;s also a leaderboard to know how your strategies stack up against other people: <a href=\"https:&#x2F;&#x2F;wallstreetclaws.com&#x2F;leaderboard\" rel=\"nofollow\">https:&#x2F;&#x2F;wallstreetclaws.com&#x2F;leaderboard</a><p>It already has ~200 people using it. Wanted to share it with HN and get feedback from you all.",
+  "summary_zh": "介绍一个允许用户轻松创建和部署AI交易代理的平台，支持策略回测和Robinhood连接。",
+  "url": "https://wallstreetclaws.com",
+  "author": "iceman_w",
+  "created_at": "2026-09-25T22:37:15Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 2,
+   "comments": 2
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "需要一个简易平台来创建和部署AI交易代理，无需深入编程。",
+   "category": "finance",
+   "score": 7,
+   "willingness_to_pay": "strong",
+   "reason_zh": "量化交易门槛高，用户希望通过AI降低门槛，金融领域付费意愿通常较强，但涉及投资风险。"
+  }
+ },
+ {
+  "id": "hn-49850798",
+  "source": "hn",
+  "title_en": "Ask HN: Is Opus 5.5 another step change?",
+  "title_zh": "Ask HN: Opus 5.5是又一次阶跃吗？",
+  "text_en": "This feels like another moment, like earlier this year, and the year prior. I am thrilled for my use cases in the applications that I build with CC, and for the LLM API usage that I sell. However, it honestly scares the crap out out of me.<p>Is &quot;the exponential&quot; an actual thing?",
+  "summary_zh": "用户询问Opus 5.5是否是一个阶跃式升级，并表达了对AI能力快速提升的兴奋与恐惧。",
+  "url": "https://news.ycombinator.com/item?id=49850798",
+  "author": "consumer451",
+  "created_at": "2026-09-25T22:29:12Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 10,
+   "comments": 11
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "无",
+   "category": "ai",
+   "score": 0,
+   "willingness_to_pay": "none",
+   "reason_zh": "这是关于模型版本更新的用户感受和讨论，未表达具体的工具或产品需求。"
+  }
+ },
+ {
+  "id": "hn-49850553",
+  "source": "hn",
+  "title_en": "Show HN: Recurse – Develop and deploy specialist agents faster",
+  "title_zh": "Show HN: Recurse – 更快开发和部署专用代理",
+  "text_en": "Hi HN! We are looking to gather some feedback on our serverless agent harness. The admittedly not-so-specific use case is to accelerate agent development and deployment. After building several custom&#x2F;special-purpose agents for a few customers, we built this to accelerate our workflow at first, and now we are trying to understand whether it could be useful to others.<p>Our driver use case was development of specialist agents with a request&#x2F;response lifecycle. Think of agents that have a well established input&#x2F;output contract where they are expected to produce high-quality output (artifacts, responses etc.). Especially when the problem is in some verifiable domain and the LLM can iteratively refine a result to a final value that satisfies constraints or optimizes some goal.<p>The product is a coding agent skill + a serverless execution runtime with a harness that takes in a system prompt + Python functions as tools. The coding agent takes in the requirements from the user, and tries agent variants by executing prompt&#x2F;tool variants it creates.<p>It works best for cases where you can think of how you can evaluate a candidate agent - when you describe this information to your coding agent, it often does a decent job at building candidate prompts, tools and even benchmarks.<p>Prompts and Python tools that the coding agent creates integrate with a harness that implements an FSM that is tuned to drive an iterative refinement process for verifiable domains. This tuning enables one to use small models like Luna to produce high quality results while keeping costs at a manageable level.<p>Our website is not 100% complete yet (some examples are missing write-ups, not all use cases we tried are there etc.), but the system is operational and docs are there.<p>Thanks!",
+  "summary_zh": "展示了一个无服务器Agent运行框架Recurse，旨在通过迭代精炼过程加速特定领域AI代理的开发和部署。",
+  "url": "https://recurse.run",
+  "author": "ozankabak",
+  "created_at": "2026-09-25T22:06:03Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 5,
+   "comments": 2
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "加速专用AI代理的开发与部署流程，特别是针对可验证领域的迭代优化。",
+   "category": "dev-tools",
+   "score": 6,
+   "willingness_to_pay": "weak",
+   "reason_zh": "解决了Agent开发中调优提示词和工具集的效率问题，有助于降低开发成本，属于B端工具需求。"
+  }
+ },
+ {
+  "id": "hn-49850400",
+  "source": "hn",
+  "title_en": "Show HN: VNetMap – A zero-knowledge E2E encrypted network topology mapper",
+  "title_zh": "Show HN: VNetMap – 一种零知识端到端加密网络拓扑映射器",
+  "text_en": "For years I have used Excel to document my Home Network. If you have switches, servers and many sevices i know you know what i mean by that.\nThere was also no good way to know which patch panel cable runs to witch outlet and what&#x27;s connected to it.<p>So I started building my own Angular app to map my network.\nI quickly wanted to automate the process of discovering new devices so i don&#x27;t have to add every device manually. So I built a Docker agent that runs nmap to scan the Network.\nWith the Scanning agent I also got the benefit of tracking all the devices and its state.<p>After some development and testing, I wanted to share my app with others. The most important thing for me was then to implement E2E Encryption because nobody wants to have their whole network in a cloud readable by anyone.\nAll data gets encrypted locally on your device and then gets transmitted to the backend.<p>A big problem was and still is, the whole nmap discovery. Different vendors use different methods to broadcast the hostname (mDNS, NetBIOS, pure DNS).<p>Now, four months later, I finally have a production version.\nFeel free to test my app and i would like to get your opinions and feedback.<p>Live App: <a href=\"https:&#x2F;&#x2F;app.vnetmap.com\" rel=\"nofollow\">https:&#x2F;&#x2F;app.vnetmap.com</a><p>GitHub (Docs &amp; Agent Setup): <a href=\"https:&#x2F;&#x2F;github.com&#x2F;vNetMap&#x2F;vnetmap-issues\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;vNetMap&#x2F;vnetmap-issues</a>",
+  "summary_zh": "介绍了一个零知识、端到端加密的网络拓扑映射工具VNetMap，支持自动设备发现和状态追踪。",
+  "url": "https://news.ycombinator.com/item?id=49850400",
+  "author": "vnetmap",
+  "created_at": "2026-09-25T21:45:39Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 2
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "需要一个端到端加密的网络拓扑映射工具，避免网络数据泄露到云端。",
+   "category": "security",
+   "score": 5,
+   "willingness_to_pay": "weak",
+   "reason_zh": "针对家庭/小型企业网络管理的隐私痛点，受众较窄但隐私安全领域用户付费意愿尚可。"
+  }
+ },
+ {
+  "id": "hn-49850364",
+  "source": "hn",
+  "title_en": "Show HN: Jev.Store – A dedicated directory of useful things made on Jev",
+  "title_zh": "Show HN: Jev.Store – 专为Jev制作的实用项目目录",
+  "text_en": "Jev launched a few days ago and has taken X (Twitter) by the storm.<p>There’s so much hype around Jev but if you dig deeper it’s mostly software slop or just plain ragebait. As a curious builder myself, it&#x27;s very hard to filter signal from noise.<p>Decided to fix it. Spent 48 hours straight building - Jev.Store<p>Hand curating only high quality projects tested by owner for valid use cases.<p>If you&#x27;ve, built anything useful on Jev, let me know, would love to feature your project there.",
+  "summary_zh": "针对Jev平台上新项目泛滥的问题，作者建立了一个人工筛选的高质量项目目录Jev.Store。",
+  "url": "https://www.jev.store/",
+  "author": "sankalpdomore",
+  "created_at": "2026-09-25T21:42:18Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 3,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "需要一个目录来筛选Jev平台上的优质项目，去除垃圾信息。",
+   "category": "ai",
+   "score": 3,
+   "willingness_to_pay": "none",
+   "reason_zh": "信息过载痛点，但Jev生态目前较新，受众非常有限，付费价值低。"
+  }
+ },
+ {
+  "id": "hn-49849991",
+  "source": "hn",
+  "title_en": "Ask HN: Does your team still have humans review and understand code?",
+  "title_zh": "Ask HN: 你的团队仍有人类审查和理解代码吗？",
+  "text_en": "",
+  "summary_zh": "询问团队在大量使用AI编码代理后，是否仍然保留人工审查和理解代码的流程。",
+  "url": "https://news.ycombinator.com/item?id=49849991",
+  "author": "taurath",
+  "created_at": "2026-09-25T21:10:01Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 3
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "确保在AI生成代码普及后，人类团队仍具备代码理解和审查能力。",
+   "category": "dev-tools",
+   "score": 0,
+   "willingness_to_pay": "none",
+   "reason_zh": "这是一个团队管理和技术债务流程的讨论话题，尚未转化为具体的工具需求。"
+  }
+ },
+ {
+  "id": "hn-49849986",
+  "source": "hn",
+  "title_en": "Show HN: Ekselio – Loveable for finance workflows (local first)",
+  "title_zh": "Show HN: Ekselio – 财务工作流的Loveable (本地优先)",
+  "text_en": "Hi everyone, I am KD - Back in my college days, I dabbled with coding, learned the basics, HTML, CSS etc. but somehow I ended up in Finance which consumed the next 20 years. Then, during covid I picked up coding again, learned react, typescript, etc - even built a rudimentary site - and then came the chatgpt moment, followed by Claude etc.<p>So, as a side project, considering that I had spent 20 years in finance and M&amp;A I started building Ekselio, loveable for finance workflows.<p>Differently from other vibe coding tools, this is local first - meaning the workflows are orchestrated by the LLM based on the file schema but then the execution happens in the browser - the cool thing is that you can see the canvas, the previews of each node, and the code base (SQl) - see the Canvas tab.<p>That said I did include a home tab, which is more of a visual, mainly because people think it&#x27;s easier to relate to how folks operate, although I know finance and accounting folks usually like the workflow and full transparency - the other thing is that once you create a workflow you can save it and then next month,you can just click Run and it runs it again with no LLM tokes involved - so the infrastructure is minimal.<p>Everything can be exported in an excel data pack with M code in case someone would want to reproduce - think Audit ready.  And, I also connected to quickbooks on line so someone can directly pull in and manipulate their financials live - I also connected to Fred which carries literally 800k series in terms of macro economic data - i.e. oil prices, inflation, CPI etc and finally to stocks.<p>I am hoping people find holes in the architecture or any ideas to make this flow a little bit better.  It is in progress so if you run into bugs let me know.  Considering that I am using my own API key, I have put a wall in case people overuse it but DM me if you would like to continue using, I can turn off the wall for you - hoping to keep that to a small number of users i",
+  "summary_zh": "介绍Ekselio，一个本地优先的金融工作流编排工具，支持从QuickBooks获取数据并导出审计就绪的代码。",
+  "url": "https://www.gptbeyond.com/try?home=1",
+  "author": "kdautaj",
+  "created_at": "2026-09-25T21:09:28Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 15,
+   "comments": 4
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "需要一个本地优先、可审计且能连接金融数据源的自动化工作流工具。",
+   "category": "finance",
+   "score": 8,
+   "willingness_to_pay": "strong",
+   "reason_zh": "结合金融专业知识与AI，解决了合规审计和数据自动化痛点，针对专业金融人员，付费潜力高。"
+  }
+ },
+ {
+  "id": "hn-49849126",
+  "source": "hn",
+  "title_en": "Ask HN: How are you conforming to EU Cyber Resilience Act (CRA) reporting rules?",
+  "title_zh": "Ask HN: 你如何符合欧盟《网络弹性法案》(CRA)的报告规则？",
+  "text_en": "",
+  "summary_zh": "询问如何在产品中满足欧盟《网络弹性法案》(CRA)的报告和合规要求。",
+  "url": "https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act",
+  "author": "annrap1d",
+  "created_at": "2026-09-25T19:55:47Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 2,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "了解如何符合欧盟《网络弹性法案》的报告规则。",
+   "category": "security",
+   "score": 7,
+   "willingness_to_pay": "strong",
+   "reason_zh": "合规是硬性需求，虽然帖子本身无内容，但法规驱动的痛点非常明确且强烈。"
+  }
+ },
+ {
+  "id": "hn-49849095",
+  "source": "hn",
+  "title_en": "Ask HN: Central Benchmark for All the Sandboxes?",
+  "title_zh": "Ask HN: 所有Sandbox的统一基准？",
+  "text_en": "I see a new sandbox provider every week... Is there an objective third party benchmark that specifies the architecture, the latency startup time, the cold start, and the cost?",
+  "summary_zh": "询问是否有第三方的Sandbox性能基准测试，包括架构、冷启动时间和成本。",
+  "url": "https://news.ycombinator.com/item?id=49849095",
+  "author": "tonychang430",
+  "created_at": "2026-09-25T19:52:59Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 2,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "需要一个客观的第三方基准来比较不同Sandbox供应商的性能和成本。",
+   "category": "dev-tools",
+   "score": 5,
+   "willingness_to_pay": "weak",
+   "reason_zh": "云基础设施选型痛点，随着Sandbox供应商增多，决策依据缺失，但受众为架构师。"
+  }
+ },
+ {
+  "id": "hn-49849064",
+  "source": "hn",
+  "title_en": "Show HN: I made a 3D rock climbing analysis tool using iPhone LiDAR [video]",
+  "title_zh": "Show HN: 使用iPhone LiDAR制作的3D攀岩分析工具 [视频]",
+  "text_en": "Having learned a lot from sharing my previous rock climbing demos, I realized that a lot of rock climbing analysis is well-suited for 3D. Even something as simple as supporting videos where the person filming moves with the climber requires 3D information.<p>To get the depth information, I used my iPhone 15 Pro&#x27;s LiDAR depth sensor through my local iPhone app. I recorded the video and depth measurements from my app, and I ran the rest of the analysis on my computer. I used ViTPose+ Large for pose estimation and SAM 3.1 to segment the holds, both models accessed through the VLM Run Gateway.<p>I think the holds activation is better, and I like the final view of all of the holds in 3D. It&#x27;s also interesting to see the distance traveled in meters. Plus, it looks cool and it feels like a video game.<p>Let me know what you think!<p>The analysis code is open-source on GitHub: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;jeremyipark&#x2F;vision-demos\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;jeremyipark&#x2F;vision-demos</a>",
+  "summary_zh": "展示了一个利用iPhone LiDAR和视觉模型进行3D攀岩动作分析的工具，开源代码可用。",
+  "url": "https://www.youtube.com/watch?v=vjItC11jF0o",
+  "author": "dr_blueberry",
+  "created_at": "2026-09-25T19:48:59Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 5,
+   "comments": 2
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "利用手机LiDAR进行3D攀岩动作分析，以获得更专业的训练反馈。",
+   "category": "health",
+   "score": 4,
+   "willingness_to_pay": "weak",
+   "reason_zh": "攀岩爱好者对技术提升有强烈需求，但属于利基爱好，受众广度有限。"
+  }
+ },
+ {
+  "id": "hn-49848955",
+  "source": "hn",
+  "title_en": "Ask HN: Who's still keeping a DOS machine up because the business depends on it?",
+  "title_zh": "Ask HN: 谁仍然因为业务依赖而保留DOS机器？",
+  "text_en": "Do you currently work with or know anyone who is still using:<p>* dBase&#x2F;Clipper&#x2F;CLARION&#x2F;Paradox&#x2F;other DOS RAD environments on period hardware to run business processes?<p>* CNC mills&#x2F;spectrometers&#x2F;microscopes&#x2F;other industrial instruments controlled by ISA cards (either bespoke or standards like GPIB)?<p>* Anything with a parallel port dongle?<p>If so, I&#x27;d be very interested in hearing your experience here, or feel free to send me an email at the address in my profile. I&#x27;m not trying to sell anything, just doing some research for an idea around keeping these going on modern hardware.",
+  "summary_zh": "询问谁仍在因业务依赖而维护DOS机器或ISA卡控制设备，作者正在研究如何在现代硬件上延续这些系统。",
+  "url": "https://news.ycombinator.com/item?id=49848955",
+  "author": "mlaux",
+  "created_at": "2026-09-25T19:37:55Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 162,
+   "comments": 157
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "寻找在现代化硬件上运行遗留DOS/ISA卡设备的解决方案，以维持业务连续性。",
+   "category": "dev-tools",
+   "score": 8,
+   "willingness_to_pay": "strong",
+   "reason_zh": "高票数且评论多，表明许多工业/制造从业者面临遗留系统兼容性的严重痛点，愿意为合规工具付费。"
+  }
+ },
+ {
+  "id": "hn-49848927",
+  "source": "hn",
+  "title_en": "Ask HN: LM Studio Bionic with Python?",
+  "title_zh": "Ask HN: 使用Python配合LM Studio Bionic的方法？",
+  "text_en": "Trying to use Bionic and it seems to have its own micro python which doesn&#x27;t have pip, or micropip, so there is no way to even install pandas.   If you can&#x27;t even analyze CSV files, what good is this?",
+  "summary_zh": "用户尝试使用LM Studio的Bionic功能，但其内置的MicroPython环境不支持pip和micropip，导致无法安装pandas等库，从而无法分析CSV文件，用户质疑该功能的实用性。",
+  "url": "https://news.ycombinator.com/item?id=49848927",
+  "author": "HoldOnAMinute",
+  "created_at": "2026-09-25T19:35:28Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 2,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "需要一款能无缝集成标准Python环境并支持安装第三方库（如pandas）的本地LLM推理与数据处理工具",
+   "category": "dev-tools",
+   "score": 7,
+   "willingness_to_pay": "weak",
+   "reason_zh": "痛点明确，现有工具受限于MicroPython无法安装必要依赖，阻碍了数据预处理和结果分析的核心需求。开发者用户付费意愿较强，但受众相对垂直。"
+  }
+ },
+ {
+  "id": "hn-49848452",
+  "source": "hn",
+  "title_en": "Show HN: Obsidian Plugin for OpenModelica",
+  "title_zh": "Show HN: Obsidian的OpenModelica插件",
+  "text_en": "I created an Obsidian plugin that serves as a front-end for OpenModelica that allows you to model and simulate cyber-physical systems (mechanical, fluid, magnetic, thermal, etc.) or a mix of all these systems all inside Obsidian.<p>What is special about Modelica is that it is acausal: components do not have fixed input&#x2F;output roles. You describe physical relationships with equations and connections, and the equations do not need to be written in a step-by-step order. Modelica (language) or OpenModelica (software) flattens the model into a simultaneous equation system (a system of differential algebraic equations (DAEs)) and then determines the computational causality and order needed to simulate it.<p>As a disclaimer, I used AI to build it but not in a sloppy way. I have spent a lot of time testing it and making sure it&#x27;s functional and accurate. And I hope it may help others to utilize such an underrated tool for learning&#x2F;researching, as this is my main usage for it.",
+  "summary_zh": "开发了一个Obsidian插件，允许用户在笔记软件中运行OpenModelica进行物理系统建模和仿真。",
+  "url": "https://community.obsidian.md/plugins/modelica-studio",
+  "author": "cs3f16",
+  "created_at": "2026-09-25T18:53:10Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 4,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "在笔记工具中集成系统建模和仿真，无需切换环境。",
+   "category": "dev-tools",
+   "score": 3,
+   "willingness_to_pay": "none",
+   "reason_zh": "工程仿真领域的小众需求，主要服务于学生和研究人员，受众极窄。"
+  }
+ },
+ {
+  "id": "hn-49848426",
+  "source": "hn",
+  "title_en": "Ask HN: Which model do you use for work?",
+  "title_zh": "Ask HN: 你们在工作中使用哪个模型？",
+  "text_en": "The past little while has been filled with new LLM releases. I am curious to understand what you find to work best for your particular workflows and tasks.",
+  "summary_zh": "随着近期大量新LLM模型的发布，用户好奇不同用户在特定的工作流和任务中认为哪些模型表现最好，并希望在论坛内交流经验和选型建议。",
+  "url": "https://news.ycombinator.com/item?id=49848426",
+  "author": "george_max",
+  "created_at": "2026-09-25T18:50:38Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 5,
+   "comments": 7
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "希望获取针对特定工作流的LLM选型建议与行业最佳实践",
+   "category": "dev-tools",
+   "score": 2,
+   "willingness_to_pay": "none",
+   "reason_zh": "该帖子主要旨在收集信息、交流观点和讨论现状，而非表达具体的功能痛点或明确的产品需求，因此不构成直接的产品机会。"
+  }
+ },
+ {
+  "id": "hn-49848295",
+  "source": "hn",
+  "title_en": "Alan Kay: Shannon gave us a way of dealing with noisy channels [video]",
+  "title_zh": "Alan Kay：香农给了我们处理噪声信道的方法 [视频]",
+  "text_en": "The following explanation is taken from <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=49622607\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=49622607</a>:<p>Alan Kay performs an improvisational avant garde layered audio feedback loop about Claude Shannon, live online during Kristen Nygaard&#x27;s 100-year birthday celebration.<p>Alan was scheduled to talk about how encountering Simula sparked his early thoughts about objects. During setup, somebody had the live stream playing out loud near an open Zoom mic, so his own voice kept arriving back in his ears about 21 seconds late, over and over.<p>What he said was not random: &quot;Shannon gave us a way of dealing with noisy channels.&quot; And: &quot;I think about that almost every day. I realize what the fuck is going on and it&#x27;s just so amazing.&quot; Shannon&#x27;s noisy channel coding theorem is the math for exactly the kind of channel that was garbling him as he praised it.<p>Alan joked it was &quot;being rerouted to Mars and back.&quot; At the speed of light, a 21 second round trip is about 3 million km one way -- eight trips to the Moon and back, but only about a seventeenth of the way to Mars at closest approach.<p>This is an accidental Zoom performance of Alvin Lucier&#x27;s &quot;I Am Sitting in a Room&quot; (1969), where Lucier re-recorded his own voice in a room until only the room&#x27;s resonance remained. Here what remains is the network: delay, compression, dropouts.<p>Bonus noise: YouTube&#x27;s auto-transcript bleeps Alan&#x27;s enthusiasm into [ __ ]. So the full chain is: Alan&#x27;s voice, Zoom, stream, room, Zoom again times three, my screen recording, YouTube&#x27;s speech recognizer, a censored transcript.<p>The fix: &quot;Just turn off the audio at your end on Zoom.&quot;<p>I Am Sitting in a Room: <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;I_Am_Sitting_in_a_Room\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;I_Am_Sitting_in_a_Room</a",
+  "summary_zh": "分享Alan Kay在直播中因回声效果即兴发挥谈论香农定理的视频，被视为一次意外的艺术表演。",
+  "url": "https://www.youtube.com/watch?v=Cjntrqhn8pk",
+  "author": "behoove",
+  "created_at": "2026-09-25T18:37:05Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 140,
+   "comments": 25
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "无",
+   "category": "education",
+   "score": 0,
+   "willingness_to_pay": "none",
+   "reason_zh": "这是一个关于Alan Kay的视频分享和回顾，属于内容消费而非产品需求。"
+  }
+ },
+ {
+  "id": "hn-49847959",
+  "source": "hn",
+  "title_en": "Ask HN: What vendor you'd switch out if a better option was available?",
+  "title_zh": "Ask HN: 如果有更好的选择，你会换掉哪些供应商？",
+  "text_en": "We all pay for things. Either personal (like Spotify) or at your company (Slack).<p>Out of those, which one would you swap if a better thing was available?",
+  "summary_zh": "用户询问个人（如Spotify）或公司（如Slack）层面上，有哪些SaaS服务是他们愿意在有更好的替代方案出现时立刻更换的。",
+  "url": "https://news.ycombinator.com/item?id=49847959",
+  "author": "jviotti",
+  "created_at": "2026-09-25T18:06:00Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 5,
+   "comments": 14
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "寻找能够替代现有SaaS服务（如Spotify、Slack）的更优产品选项",
+   "category": "software",
+   "score": 4,
+   "willingness_to_pay": "weak",
+   "reason_zh": "用户旨在通过社区交流寻找竞品替代品，虽然反映了现有产品的用户痛点，但属于通用SaaS品类的讨论，缺乏针对特定工具或工作流的明确功能痛点，不易直接转化为单一产品机会。"
+  }
+ },
+ {
+  "id": "hn-49847249",
+  "source": "hn",
+  "title_en": "Ask HN: Has anyone built a leaderless multi-agent system?",
+  "title_zh": "Ask HN: 有人构建过无主的多智能体系统吗？",
+  "text_en": "Anyone running multiple agents concurrently in production? And has anyone tried going leaderless?<p>There&#x27;s LangGraph, CrewAI, etc.<p>But I keep coming back to whether you need an orchestrator at all.<p>No supervisor. Just agents, each reacting to their own inputs, coordinating only through shared state. A true leaderless architecture.<p>The way some distributed systems have been for decades.<p>Context: previously, I wrote about running Claude Code as an AI SRE handling an incident end to end. I&#x27;ve been rebuilding it as four, all working on the same incident: detect, diagnose, remediate, communicate.",
+  "summary_zh": "用户在生产环境中使用多智能体框架（如LangGraph、CrewAI）后，质疑是否需要一个中心编排器（orchestrator）。用户提出并正在探索一种类似传统分布式系统的无主架构，智能体仅通过共享状态进行协调，并分享了AI SRE应用背景。",
+  "url": "https://news.ycombinator.com/item?id=49847249",
+  "author": "har-ki",
+  "created_at": "2026-09-25T17:12:20Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 2,
+   "comments": 2
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "需要支持分布式系统架构的无主（Leaderless）多智能体协同工作框架",
+   "category": "dev-tools",
+   "score": 8,
+   "willingness_to_pay": "strong",
+   "reason_zh": "针对前沿AI多智能体架构（去中心化、无中心调度）的技术痛点提出了明确的架构假设，面向AI研发者，属于高价值的技术探索方向。"
+  }
+ },
+ {
+  "id": "hn-49846013",
+  "source": "hn",
+  "title_en": "Ask HN: Lifecycle Email Tools",
+  "title_zh": "Ask HN: 生命周期邮件工具",
+  "text_en": "What&#x27;s the best lifecycle email tool these days?",
+  "summary_zh": "用户在寻找当前市场上最好的生命周期邮件（Lifecycle Email）工具，并询问社区的最新推荐。",
+  "url": "https://news.ycombinator.com/item?id=49846013",
+  "author": "NatalieTrono",
+  "created_at": "2026-09-25T15:31:57Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 2,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "寻找当前市场上表现最佳的客户生命周期邮件营销工具",
+   "category": "marketing",
+   "score": 2,
+   "willingness_to_pay": "none",
+   "reason_zh": "常规的工具推荐与信息搜集请求，缺乏对现有工具局限性或特定痛点的深入描述，付费意愿和直接机会较弱。"
+  }
+ },
+ {
+  "id": "hn-49845172",
+  "source": "hn",
+  "title_en": "Show HN: Jev Plays Pokémon Red",
+  "title_zh": "Show HN: Jev玩宝可梦红",
+  "text_en": "Hey HN! Wanted to share a fun project I&#x27;ve been hacking on. Given Jev can make decisions really fast (but not fast enough to play Doom yet sadly), I wanted to try and push it to play a more complex game than Tetris. So I went with Pokémon.<p>I&#x27;ve spent endless hours playing this game as a child so building this was a ton of fun.<p>I open sourced everything in case you want to hack on it yourself here: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;christianmat&#x2F;jev-pokemon\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;christianmat&#x2F;jev-pokemon</a><p>The game is being streamed live including the tokens and cost - hopefully we get all the badges and don&#x27;t get stuck in a cave :)",
+  "summary_zh": "展示让Jev AI模型玩《宝可梦红》的项目，开源了代码并直播游戏过程及Token成本。",
+  "url": "https://jev-pokemon.vercel.app/",
+  "author": "pancomplex",
+  "created_at": "2026-09-25T14:28:07Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 218,
+   "comments": 90
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "无",
+   "category": "entertainment",
+   "score": 0,
+   "willingness_to_pay": "none",
+   "reason_zh": "这是一个开源的技术展示/娱乐项目，展示Jev AI玩游戏，非解决痛点的产品。"
+  }
+ },
+ {
+  "id": "hn-49845022",
+  "source": "hn",
+  "title_en": "Ask HN: Anyone else's OpenAI and Claude API keys mysteriously leaked last night?",
+  "title_zh": "Ask HN: 昨晚有人的OpenAI和Claude API密钥也神秘泄露了吗？",
+  "text_en": "Seems 1 (out of 3) of my openapi keys and of 1 my claude keys was leaked last night all around the same time. My keys are only stored on my laptop and on my server, not on github.",
+  "summary_zh": "用户的OpenAI和Claude API密钥在夜间同一时间神秘泄露。用户指出这些密钥仅存储在本地笔记本电脑和服务器上，并未存放在GitHub等公开代码库中，暴露出当前API密钥管理的脆弱性。",
+  "url": "https://news.ycombinator.com/item?id=49845022",
+  "author": "par",
+  "created_at": "2026-09-25T14:16:05Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 2,
+   "comments": 1
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "需要更安全的API密钥存储、轮换及泄露监控与告警解决方案",
+   "category": "security",
+   "score": 9,
+   "willingness_to_pay": "strong",
+   "reason_zh": "AI API密钥泄露导致直接财务损失和严重安全风险，当前本地存储方式的脆弱性凸显了密钥管理与监控产品的巨大刚需，企业和个人付费意愿极强。"
+  }
+ },
+ {
+  "id": "hn-49844960",
+  "source": "hn",
+  "title_en": "Tell HN: AGI Is Here",
+  "title_zh": "Tell HN: AGI已经到来",
+  "text_en": "Whether by your strict definition or not AGI is here is immaterial. For 90%+ of humanity AGI is here <i>today</i>, they act like it does and they use it as if it is. Geoffrey Hinton in a recent interview said that according to him it is still a year or so out, but that seems to ignore the fact that he&#x27;s one of the smartest people on the planet, so he is one of the last to be &#x27;caught up with&#x27;.<p>If you have the knowledge of a very significant fraction of humanity at your fingertips, reasonably strong reasoning abilities, if you can speedread at 1500 words &#x2F; minute without dropping a beat and if you can write at 200+ characters <i>per second</i> you can get more done in an hour than a normal person can get done in a day.<p>So I would suggest we start thinking about how to do all those things that we should have done <i>years</i> ago (such as to create ways to safely deploy this tech) now. It&#x27;s not going to go away, like every other technology bad version 1.0 will give way to much improved version 2.0 and so on, and in five years time you won&#x27;t recognize the landscape.<p>Stop waiting for &#x27;your&#x27; AGI. You most likely are in that top 10%.",
+  "summary_zh": "作者认为对大多数人而言AGI已经到来，呼吁社会关注安全部署而非等待特定技术里程碑。",
+  "url": "https://news.ycombinator.com/item?id=49844960",
+  "author": "jacquesm",
+  "created_at": "2026-09-25T14:11:59Z",
+  "captured_at": "2026-09-26T13:48:32.178493Z",
+  "metrics": {
+   "upvotes": 12,
+   "comments": 24
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "无",
+   "category": "other",
+   "score": 0,
+   "willingness_to_pay": "none",
+   "reason_zh": "这是一篇关于AI发展观点的评论文章，未表达具体的产品需求或痛点。"
+  }
+ }
+]
