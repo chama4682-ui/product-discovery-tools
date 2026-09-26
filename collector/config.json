@@ -1,0 +1,10 @@
+{
+  "enabled_sources": ["hn"],
+  "hn": {
+    "keywords": ["pain point", "struggle", "frustrating", "wish there was", "Ask HN"],
+    "max_per_keyword": 30
+  },
+  "model": "Agnes 3.0 Flash",
+  "batch_size": 25,
+  "retention_days": 90
+}
