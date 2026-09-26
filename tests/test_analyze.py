@@ -41,10 +41,11 @@ def ok_content(ids):
 
 
 def install_post(monkeypatch, content_for):
-    calls = {"n": 0}
+    calls = {"n": 0, "bodies": []}
 
     def fake_post(url, **kwargs):
         calls["n"] += 1
+        calls["bodies"].append(kwargs["json"])
         body = json.loads(kwargs["json"]["messages"][1]["content"])
         ids = [p["id"] for p in body]
         return FakeResp(content_for(ids))
@@ -106,3 +107,14 @@ def test_missing_api_key_raises_with_name(monkeypatch):
     monkeypatch.delenv("AGNES_API_KEY", raising=False)
     with pytest.raises(Exception, match="AGNES_API_KEY"):
         analyze_records([make_record(1)], CFG)
+
+
+def test_contract_uses_json_schema_with_enum(monkeypatch):
+    records = [make_record(1)]
+    calls = install_post(monkeypatch, ok_content)
+    analyze_records(records, CFG)
+    rf = calls["bodies"][0]["response_format"]
+    assert rf["type"] == "json_schema"
+    item_schema = rf["json_schema"]["schema"]["properties"]["items"]["items"]
+    assert item_schema["properties"]["willingness_to_pay"]["enum"] == ["strong", "weak", "none"]
+    assert item_schema["properties"]["score"]["maximum"] == 10

@@ -18,6 +18,39 @@ _SYSTEM_PROMPT = (
 )
 
 
+_ITEM_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "id": {"type": "string"},
+        "is_demand": {"type": "boolean"},
+        "demand_zh": {"type": "string"},
+        "category": {"type": "string"},
+        "score": {"type": "integer", "minimum": 0, "maximum": 10},
+        "willingness_to_pay": {"type": "string", "enum": ["strong", "weak", "none"]},
+        "reason_zh": {"type": "string"},
+        "title_zh": {"type": "string"},
+        "summary_zh": {"type": "string"},
+    },
+    "required": ["id", "is_demand", "demand_zh", "category", "score",
+                 "willingness_to_pay", "reason_zh", "title_zh", "summary_zh"],
+    "additionalProperties": False,
+}
+
+_RESPONSE_FORMAT = {
+    "type": "json_schema",
+    "json_schema": {
+        "name": "demand_analysis",
+        "strict": True,
+        "schema": {
+            "type": "object",
+            "properties": {"items": {"type": "array", "items": _ITEM_SCHEMA}},
+            "required": ["items"],
+            "additionalProperties": False,
+        },
+    },
+}
+
+
 def _analyze_batch(batch: list[Record], api_key: str, model: str) -> None:
     posts = [
         {
@@ -34,7 +67,7 @@ def _analyze_batch(batch: list[Record], api_key: str, model: str) -> None:
         headers={"Authorization": f"Bearer {api_key}"},
         json={
             "model": model,
-            "response_format": {"type": "json_object"},
+            "response_format": _RESPONSE_FORMAT,
             "messages": [
                 {"role": "system", "content": _SYSTEM_PROMPT},
                 {"role": "user", "content": json.dumps(posts, ensure_ascii=False)},
