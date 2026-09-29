@@ -1,5 +1,1085 @@
 [
  {
+  "id": "hn-49886853",
+  "source": "hn",
+  "title_en": "Ask HN: Do you \"Enable no talk mode?\"",
+  "title_zh": "Ask HN: 你使用“关闭闲聊模式”吗？",
+  "text_en": "After spending years reading mostly human generated content on the internet for years, and treasuring the efforts spent absorbing content, the latest fad of llm&#x27;s spitting out text like there was no tomorrow has drastically shifted my tolerance for content.<p>Is anyone else slapping up a &quot;ENABLE NO TALKING MODE&quot; before their prompts to ensure that the response coming back is straight to the point and factual?<p>Sadly I can&#x27;t convince claude on the desktop app to follow this rule continuously but it&#x27;s an easy manual prompt starter..<p>Any other tricks that may be applied to keep chatter and tokens down?",
+  "summary_zh": "用户抱怨当前LLM生成内容过于冗长，导致信息获取效率下降。他询问是否有方法或设置（如“Enable no talk mode”）能让Claude等模型直接输出简洁、事实性的回答，并减少无效Token消耗。",
+  "url": "https://news.ycombinator.com/item?id=49886853",
+  "author": "x______________",
+  "created_at": "2026-09-29T01:23:03Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "希望AI助手能提供一种可配置的“直接回答”模式，减少无用的废话以降低Token消耗",
+   "category": "productivity",
+   "score": 3,
+   "willingness_to_pay": "weak",
+   "reason_zh": "痛点真实且普遍，许多用户对LLM冗长的回复感到厌烦。但解决该痛点的方案（如提示词工程）门槛极低，竞品众多，难以支撑独立的付费软件，通常作为功能而非产品存在。"
+  }
+ },
+ {
+  "id": "hn-49886422",
+  "source": "hn",
+  "title_en": "Show HN: Corral kill every command your agent starts",
+  "title_zh": "Show HN: Corral 终止你的代理启动的每个命令",
+  "text_en": "This summer I got to intern on the backend of an AI agent and I noticed that it would run commands like tail -f or some random background jobs and exit without terminating any of these. I got curious and looked up how Claude Code handles stuff like this, and it turns out they have similar problems.<p>There are issues about background processes from the Bash tool not getting cleaned up when the session ends, and one where a timeout sends SIGTERM to the whole process group and ends up killing Claude Code itself. Most runners only kill the process they started, so anything that double forks, runs in the background, or keeps stdout open either survives or makes the runner hang.<p>Corral was me attempting to make a fix for this problem, while also trying to learn about processes and signals in Linux. You run corral --wall 30s -- yourcommand and by the time it&#x27;s done, nothing it started should be running.<p>The command gets its own session so killing it can&#x27;t kill you, and there&#x27;s a mode where it runs in its own cgroup so the whole tree gets killed at once, including processes that may have changed sessions or process groups.<p>If there&#x27;s no cgroup available it tracks the tree through &#x2F;proc instead (this is a bit weaker, it still catches processes that changed sessions once their parent dies, but it can&#x27;t kill anything running as a different user or anything handed off to another service like systemd), and if it can&#x27;t confirm everything is dead it exits with 120.<p>Would love any feedback and more stuff along these lines i can do to learn more",
+  "summary_zh": "作者开发Corral，一个CLI工具，用于包裹AI代理执行的命令，确保进程树在超时或会话结束时被彻底终止，防止后台进程残留。",
+  "url": "https://github.com/Cardinal44/corral",
+  "author": "CG144",
+  "created_at": "2026-09-29T00:35:05Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 2,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "需要一种机制来确保AI代理启动的后台进程在会话结束时被正确清理，避免资源泄漏。",
+   "category": "dev-tools",
+   "score": 5,
+   "willingness_to_pay": "weak",
+   "reason_zh": "解决AI代理（如Claude Code）运行环境中的真实工程痛点，属于开发者工具细分领域，受众精准但规模有限。"
+  }
+ },
+ {
+  "id": "hn-49885733",
+  "source": "hn",
+  "title_en": "Show HN: LLMs Play Chicken in Realtime",
+  "title_zh": "Show HN: LLMs在实时玩胆小鬼博弈",
+  "text_en": "Was curious how LLMs would play chicken without a clear reward matrix, and then took it a step further by allowing communication and realtime decision making.<p>Each LLM is in an independent loop, where each turn they are given the current speed and time to impact, as well as their historical latency. They can pre-plan moves to account for latency.",
+  "summary_zh": "作者构建了一个实验，让多个LLM在实时环境中进行“胆小鬼博弈”（Chicken）。每个LLM在独立循环中根据速度和碰撞时间做决策，并允许通过通信和预判延迟来制定策略，以观察其行为模式。",
+  "url": "https://chicken.wildcardlabs.tech",
+  "author": "akcheese",
+  "created_at": "2026-09-28T23:10:54Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 2
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "探索LLM在实时竞争策略游戏（如胆小鬼博弈）中的决策能力与交互表现",
+   "category": "dev-tools",
+   "score": 1,
+   "willingness_to_pay": "none",
+   "reason_zh": "这是一个技术研究展示，而非解决用户痛点。受众仅限于AI研究极客，缺乏商业需求背景，用户无付费意愿，属于学术或娱乐性质。"
+  }
+ },
+ {
+  "id": "hn-49884626",
+  "source": "hn",
+  "title_en": "Show HN: Serverless, cheater-proof MTG engine using zero-knowledge play",
+  "title_zh": "Show HN: 使用零知识证明的无服务器、防作弊MTG引擎",
+  "text_en": "Hey HN! Tried to show this off a couple times before but didn&#x27;t really get much traction, figured now that more time&#x27;s been spent in the UI&#x2F;UX side of things I&#x27;d give it another shot.<p>This is my attempt, started at the beginning of the year, to build a complete Magic: The Gathering engine.<p>Instead of coding individual card scripts, a compiler takes oracle text as input and outputs the card definition itself into executable effects that ran in the engine.<p>Another cool thing which is mentioned in the title is that tournaments can be played without relying on a central server hosting the game, and without having to trust in your opponents playing honestly. Shuffles carry a ZKP so that all peers can verify they were performed securely, and even complex cards like Praetor&#x27;s Grasp which give you information about your opponent&#x27;s cards that they themselves don&#x27;t have work as expected with perfect secrecy!<p>I&#x27;d love to get some feedback on HN, especially regarding broken mechanics&#x2F;scenarios and whatever potential improvements you think are worth adding.",
+  "summary_zh": "作者展示了一个基于零知识证明（ZKP）的无服务器MTG引擎。它能从规则文本自动编译卡牌效果，并允许玩家在对局中通过加密验证洗牌和手牌信息，确保无需信任中心化服务器或对手的诚实性。",
+  "url": "https://chiplis.com/ironsmith/",
+  "author": "nicolas-siplis",
+  "created_at": "2026-09-28T21:26:43Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "寻求一种无中心服务器、防作弊的自动化MTG（万智牌）比赛引擎",
+   "category": "gaming",
+   "score": 2,
+   "willingness_to_pay": "none",
+   "reason_zh": "技术极其小众且复杂，主要服务于特定的竞技牌游戏玩家。虽然解决了防作弊痛点，但受众基数极小，难以支撑规模化商业机会，属于极客项目。"
+  }
+ },
+ {
+  "id": "hn-49884172",
+  "source": "hn",
+  "title_en": "Show HN: Divot.css – a simple skeuomorphic button style",
+  "title_zh": "Show HN: Divot.css – 一种简单的拟物按钮样式",
+  "text_en": "Hey HN, I wanted to share this stylesheet for a skeuomorphic button that comes from a project I&#x27;ve been working on. Hope you find some interest in it<p>I wanted to capture some of the physicality of real buttons so I&#x27;ve been playing with this &quot;soft divot&quot; concept. It&#x27;s a border style that creates an illusion of the button sitting flush on the page.<p>Skeuomorphic buttons have been around forever. What I think is different here is this idea of maintaining the button face on the same plane as its background.<p>It comes with three elevation levels: raised (+1), default (0) and sunken (-1). For primary actions you can choose the raised plane face. Then most other buttons, they can stay nicely on the default UI plane.",
+  "summary_zh": "作者分享Divot.css，一种模拟拟物按钮的样式表，通过边框错觉让按钮看起来与页面齐平，提供三种高度级别。",
+  "url": "https://nlaz.github.io/divot.css/",
+  "author": "nlazaris",
+  "created_at": "2026-09-28T20:52:18Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 3,
+   "comments": 1
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "寻找一种保持按钮表面与背景同一平面的模拟拟物（Skeuomorphic）按钮样式CSS。",
+   "category": "design",
+   "score": 2,
+   "willingness_to_pay": "none",
+   "reason_zh": "属于极其细分的设计偏好，受众群体小，且通常作为免费开源资源分享，商业化空间极小。"
+  }
+ },
+ {
+  "id": "hn-49884146",
+  "source": "hn",
+  "title_en": "Ask HN: Why are Gemini Flash 3.8 LIVE Voices sooo limited?",
+  "title_zh": "Ask HN: 为什么 Gemini Flash 3.8 LIVE 语音如此受限？",
+  "text_en": "you can find them here:\nhttps:&#x2F;&#x2F;aistudio.google.com&#x2F;app&#x2F;live<p>from what I can hear, only 2 sound African American. The rest are all very corporate and generic.<p>Not even one british voice.<p>I&#x27;m looking to do a real-time voice &lt;&gt; voice POC .. but not sure if the STT or TTS will have the latency and pricing parity that 3.8 live does.\nWhat&#x27;s been your experience with the latter? I do love the idea of cloning specific voice however cause these are just so crrrrrrrrringe.",
+  "summary_zh": "用户抱怨Gemini Flash 3.8 Live语音选项有限，音色缺乏多样性（如缺少英式口音），正在探索实时语音交互POC的STT/TTS替代方案。",
+  "url": "https://news.ycombinator.com/item?id=49884146",
+  "author": "artur_makly",
+  "created_at": "2026-09-28T20:49:38Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "需要更多样化、自然（如非企业风）的语音模型选项，用于实时语音对话POC，并关注延迟和成本。",
+   "category": "ai-dev",
+   "score": 3,
+   "willingness_to_pay": "none",
+   "reason_zh": "用户对现有TTS音色单一（过于企业化/缺乏方言）有明确不满，但属于对现有AI大模型厂商产品的反馈，非独立新产品机会。"
+  }
+ },
+ {
+  "id": "hn-49884087",
+  "source": "hn",
+  "title_en": "Ask HN: How do you get your first users for an MVP?",
+  "title_zh": "Ask HN: 你如何为你的MVP获取首批用户？",
+  "text_en": "For founders building an MVP today, what’s the best way to get the first users and prove there’s real demand before talking to investors?",
+  "summary_zh": "创始人询问在当前环境下，开发MVP时如何获取首批用户，以及如何在与投资者沟通前证明存在真实的市场需求。这是一个关于用户增长和市场验证的咨询。",
+  "url": "https://news.ycombinator.com/item?id=49884087",
+  "author": "amina124",
+  "created_at": "2026-09-28T20:44:20Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 4,
+   "comments": 4
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "初创公司创始人寻求获取MVP首批用户并验证真实市场需求的具体策略",
+   "category": "business",
+   "score": 5,
+   "willingness_to_pay": "weak",
+   "reason_zh": "这是通用的创业挑战，需求广泛。虽然咨询价值高，但解决方案多为策略而非软件工具，付费形式通常为咨询费或内容订阅，工具类付费意愿较低。"
+  }
+ },
+ {
+  "id": "hn-49884074",
+  "source": "hn",
+  "title_en": "How Apply for Position?",
+  "title_zh": "如何申请职位？",
+  "text_en": "how apply for position ? assume you found specific position, where you good match, but how apply on it ?\nsimply press apply on site ?! but, how minimum in my case, this is way to nowhere, checked by years, with no single exception.\nYes, it’s geared towards ordinary people—standardized resume formats and the like (though I’ve heard that companies also struggle to find good candidates, but here i don`t know).\nThe problem is that the means (the resume) has supplanted the goal (finding an effective employee) and become an end in itself—and not just any resume, but one following a specific standard format.\nThose who do not fit into artificially devised selection criteria are immediately weeded out.\nEven if you have something better than a regular resume, it&#x27;s not suitable for hr - straight into the trash.\nIn such a situation, the only (highly hypothetical) path is a direct dialogue about the position with someone—ideally not a recruiter, but a tech lead or manager—provided you can offer something exceptional that justifies such an unconventional approach.\nYes, this path is far from being for everyone—it is only for those who don’t fit the standard mold and have something to show for it. But such a path needs to exist, too, for those rare individuals.\nBut how do you actually reach out to someone and try to strike up a conversation? (if you don&#x27;t have contacts within the company)\nIt seems like LinkedIn is practically the only way to try and message someone here. Or are there other options?\nsomebody, as a matter of principle, refused to conform to the system, remained true to themselves, and tried to follow their own path?\nIn my case, LinkedIn is completely out of the question, since my &quot;advanced&quot; account there was blocked over a year ago—and now they strictly block any new, empty accounts, which don&#x27;t work anyway.\nIn a situation without LinkedIn, it turns out that it’s impossible to even attempt to apply.<p>Those are general questions; specifically",
+  "summary_zh": "用户询问在没有LinkedIn的情况下如何申请职位，抱怨标准化简历筛选系统排除了优秀但非传统的候选人，渴望直接与决策者（如技术主管）建立对话的渠道。",
+  "url": "https://news.ycombinator.com/item?id=49884074",
+  "author": "rbmm",
+  "created_at": "2026-09-28T20:43:09Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 2
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "希望有一个替代LinkedIn的渠道，让不符合标准格式简历的高技能人才能直接与技术负责人对话并展示独特价值。",
+   "category": "careers",
+   "score": 4,
+   "willingness_to_pay": "none",
+   "reason_zh": "反映了求职市场中非标准人才的痛点，但属于双边市场（平台）需求，冷启动难度极大，个人付费意愿低。"
+  }
+ },
+ {
+  "id": "hn-49884055",
+  "source": "hn",
+  "title_en": "Show HN: Trade Lord, inspired by Drug Lord 2, quick daily leaderboard game",
+  "title_zh": "Show HN: Trade Lord，受 Drug Lord 2 启发的快速每日排行榜游戏",
+  "text_en": "Buy low in one city, travel, sell high. 15 days. Everyone plays the same market each day, and everyone ends up on the leaderboard.<p>I used to play Drug Lord 2 nearly 20 years ago and loved it! I forgot about it until recently when I accidentally stumbled across it again.<p>I&#x27;m a software engineer but also wanted to learn how to use Claude Code, so I challenged myself to make a similar game that was more family friendly. It&#x27;s a web game designed to be played on a PC or phone.<p>It&#x27;s vanilla TypeScript with no framework. The game engine is a set of pure functions driven by a seeded random-number generator, so the Cloudflare Worker can replay every submitted run move by move to verify the score before it reaches the leaderboard. The whole thing runs on Cloudflare&#x27;s free tier.<p>I&#x27;ve put a lot of effort into the leaderboard so people can play against each other and share scores. It&#x27;s also the same game per day, allowing people to improve their scores and try to get a spot on the daily leaderboard.<p>Click &quot;Help&quot; then &quot;Walk me through my first trade&quot; for a quick start.<p>I&#x27;d love to get some players on there and get some feedback. I hope whoever plays it enjoys it.",
+  "summary_zh": "作者发布Trade Lord，一款受Drug Lord 2启发的网页游戏，玩家每日在相同市场条件下进行低买高卖交易，比拼排行榜。",
+  "url": "https://tradelord.theboyvr.com/",
+  "author": "furiousfirebird",
+  "created_at": "2026-09-28T20:41:19Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 2,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "希望玩到快速、每日更新、基于策略的交易类游戏，以获取社交排行榜的成就感。",
+   "category": "gaming",
+   "score": 2,
+   "willingness_to_pay": "none",
+   "reason_zh": "这是一个具体的游戏产品，用户表达的是游玩意愿而非寻找解决痛点的工具。游戏产品的免费商业模式下付费意愿极低。"
+  }
+ },
+ {
+  "id": "hn-49883997",
+  "source": "hn",
+  "title_en": "Show HN: LogPhase – See a PR's blast radius as impacted user journeys",
+  "title_zh": "Show HN: LogPhase – 以受影响的 用户旅程查看 PR 的影响范围",
+  "text_en": "Hi all,<p>I&#x27;ve been working on this app for a few months now, and I think it&#x27;s at a stage where I can share it with everyone.<p>I built this app because AI-assisted coding is here to stay. With the right harness, AI can handle many things that were previously difficult. It can even perform PR reviews, in many ways better than humans. However:<p>&gt; Code is only the visible part of a program. The real program is the understanding behind it: why it&#x27;s built this way, how it maps to the business, and what breaks when you change it. That understanding lives in people, not in files.<p>Every day I slog through reviewing quite a few PRs containing dozens of file changes, and the only thing I had were file diffs. I struggled to build a complete picture of how all those different pieces connected. I&#x27;d jump between files and functions in my IDE, trying to piece together how they all fit.<p>So I built this tool to avoid hopping between different files and functions. You give it a PR, and it calculates the blast radius in the form of impacted or new user journeys. In those user journeys, you can see what was changed. You don&#x27;t need to hop between different files, and for each step in the journey, you can go directly to the code. It provides full context in one single view.<p>A lot of the time I thought, &quot;Okay, why do I need to build this thing? Claude can do it.&quot; Still, I was never happy with Claude&#x27;s output, and I always found myself reaching for this tool. At some point I thought, &quot;Why not just build it properly and share it with everyone?&quot; This tool has helped me immensely with my understanding of the codebase.<p>Visualising code as a city is not the main goal of this tool, but I wanted to try it anyway. I think it&#x27;s pretty cool. Sometimes, looking at the size, height, and width of a building gives me a feeling that maybe that class needs some refactoring.<p>I put a lot of effort into this. I do intend to sell it commerc",
+  "summary_zh": "作者开发了LogPhase，用于计算PR的“爆炸半径”并将其可视化为受影响的用户旅程，帮助开发者在单一视图中理解代码变更对业务逻辑的影响，解决在文件间来回跳转的烦恼。",
+  "url": "https://logphase.ai/",
+  "author": "logphase",
+  "created_at": "2026-09-28T20:35:21Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "用户希望有一个工具来在审查PR时直观展示代码变更对用户旅程的影响，从而减少在文件间跳转的时间。",
+   "category": "dev-tools",
+   "score": 7,
+   "willingness_to_pay": "weak",
+   "reason_zh": "精准解决了AI辅助编码时代代码审查中上下文割裂的痛点，受众为使用AI工具的开发者，但作为新工具需克服现有IDE集成习惯。"
+  }
+ },
+ {
+  "id": "hn-49883656",
+  "source": "hn",
+  "title_en": "Ask HN: Feedback on GitHub-compatible Git hosting",
+  "title_zh": "Ask HN: 关于GitHub兼容的Git托管服务的反馈",
+  "text_en": "Hi HN - I&#x27;m building Reef, a hosted git software that is Github-API compatible.<p>The site &#x2F; landing page explains why &amp; features, temporarily at: https:&#x2F;&#x2F;swtch.in&#x2F;<p>I&#x27;m looking for feedback on the beta. I don&#x27;t know if anyone would be interested as there already are many other git hosting software (gitlabs, gitea, forgejo, gogs etc) - but happy to share a demo, take feedback and answer any questions. Thanks.",
+  "summary_zh": "作者开发了名为Reef的托管Git服务，声称其API兼容GitHub。目前处于测试阶段，作者正在寻求早期用户的反馈，并承认市场上已有许多类似的Git托管软件，试图展示其独特价值。",
+  "url": "https://news.ycombinator.com/item?id=49883656",
+  "author": "rohityadavcloud",
+  "created_at": "2026-09-28T20:09:29Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "对兼容GitHub API的替代Git托管服务（Reef）提供反馈",
+   "category": "dev-tools",
+   "score": 2,
+   "willingness_to_pay": "none",
+   "reason_zh": "这是用户为项目请求反馈，而非表达痛点。Git托管市场竞争激烈（GitLab, Gitea等），除非Reef有巨大差异化优势，否则用户迁移成本高，付费意愿低。"
+  }
+ },
+ {
+  "id": "hn-49883539",
+  "source": "hn",
+  "title_en": "California farmers are struggling to sell grapes as demand for wine drops",
+  "title_zh": "随着葡萄酒需求下降，加州农民正努力销售葡萄",
+  "text_en": "",
+  "summary_zh": "加州农民因葡萄酒需求下降而难以销售葡萄。",
+  "url": "https://www.kqed.org/news/12101534/california-farmers-are-struggling-to-sell-grapes-as-demand-for-wine-drops",
+  "author": "randycupertino",
+  "created_at": "2026-09-28T20:00:06Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 44,
+   "comments": 87
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "无直接产品需求，属于行业新闻。",
+   "category": "other",
+   "score": 1,
+   "willingness_to_pay": "none",
+   "reason_zh": "这是一篇关于加州葡萄种植商因葡萄酒需求下降而面临销售困境的新闻报道，属于宏观经济或行业新闻，不直接转化为软件产品机会。"
+  }
+ },
+ {
+  "id": "hn-49883289",
+  "source": "hn",
+  "title_en": "Ask HN: Do you have small victories to share for us to celebrate?",
+  "title_zh": "Ask HN: 你们有什么小胜利愿意分享供我们庆祝吗？",
+  "text_en": "Mine: My game got featured on the App store! That&#x27;s all. Just excited and wanted to be able to share. It&#x27;s not life changing in any way, just tucked away in a little list far down the front page. But it&#x27;s such a rewarding feeling.<p>Building stuff and throwing it out into the void is very intimidating and I was starting to get disheartened. What kind of small successes have you had that you want to celebrate?",
+  "summary_zh": "用户分享其游戏被App Store推荐的兴奋之情，并邀请其他人分享在开发过程中获得的微小成功体验，以互相鼓励和支持。",
+  "url": "https://news.ycombinator.com/item?id=49883289",
+  "author": "jamwise",
+  "created_at": "2026-09-28T19:39:24Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 1
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "寻求情感支持与经验分享，了解他人开发产品过程中的小胜利",
+   "category": "business",
+   "score": 0,
+   "willingness_to_pay": "none",
+   "reason_zh": "纯粹的情感交流话题，不涉及任何产品或技术痛点，无商业价值。"
+  }
+ },
+ {
+  "id": "hn-49883184",
+  "source": "hn",
+  "title_en": "Show HN: Press Start – A Playable Museum of Video Game History",
+  "title_zh": "Show HN: Press Start – 一座可玩的电子游戏历史博物馆",
+  "text_en": "Hi HN,<p>I was testing out Opus and built something I&#x27;ve wanted to build for a very long time.<p>It&#x27;s a fully interactive playable museum of video game history.<p>Scroll and you progress through a corridor with rooms dedicated to each era of Video game history, designed and made to sound like that era with playable games based off of that era&#x27;s games.<p>There are a bunch of easter eggs and a lot to learn about video games.<p>Enjoy the exhibits.",
+  "summary_zh": "作者使用Opus构建了一个可玩的视频游戏历史博物馆，通过滚动浏览不同时代的房间并玩模拟该时代风格的小游戏。",
+  "url": "https://joeyazizoff.com/press-start",
+  "author": "JoAz111",
+  "created_at": "2026-09-28T19:29:26Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "无明确需求，属于个人兴趣项目分享。",
+   "category": "gaming",
+   "score": 1,
+   "willingness_to_pay": "none",
+   "reason_zh": "作者展示了一个用AI生成的互动游戏历史博物馆，属于创意编程项目，未表达解决特定用户痛点的意图。"
+  }
+ },
+ {
+  "id": "hn-49882129",
+  "source": "hn",
+  "title_en": "Show HN: Nibia Fabric – Turn everyday computers into a shared AI compute cluster",
+  "title_zh": "Show HN: Nibia Fabric – 将日常计算机转变为共享 AI 计算集群",
+  "text_en": "I built NIBIA Fabric, an open-source distributed LLM inference system that pools CPU and RAM across macOS, Linux, and Windows machines.<p>It builds on llama.cpp, with capacity-aware scheduling, adaptive memory reservation, persistent tensor caching, and an OpenAI-compatible API.<p>I’ve validated the current alpha on three physical machines across several models, including a 30B-class Qwen model, as well as GPT-OSS 20B. Feedback on the architecture and use cases is very welcome.",
+  "summary_zh": "作者发布Nibia Fabric，一个开源分布式LLM推理系统，可跨macOS、Linux和Windows机器池化CPU和内存资源，提供OpenAI兼容API。",
+  "url": "https://github.com/nibia-ai/fabric",
+  "author": "abelop",
+  "created_at": "2026-09-28T18:16:37Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 3
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "希望利用闲置的本地计算机（CPU/RAM）组成集群，低成本运行LLM推理，无需昂贵GPU。",
+   "category": "dev-tools",
+   "score": 4,
+   "willingness_to_pay": "none",
+   "reason_zh": "利用CPU进行LLM推理在性能上远不及GPU，该方案更多是实验性质，难以满足对延迟和吞吐量有要求的实际生产场景。"
+  }
+ },
+ {
+  "id": "hn-49881892",
+  "source": "hn",
+  "title_en": "Show HN: Flo State, a fast, minimalist, native Markdown editor for macOS",
+  "title_zh": "Show HN: Flo State，一款快速、极简的原生 macOS Markdown 编辑器",
+  "text_en": "Was tired of every good markdown editor out there being electron and their consuming 500mb + 3% CPU when idle(!) when they&#x27;re just editing text.<p>So I built one from scratch in pure native. \n* Launches in 0.1s\n* Takes 0.0% CPU when idle \n* Consumes 50MB memory even with a large workspace open \n* Binary is 15MB\n* Supports all markdown — LaTeX, Mermaid, tables, image attachments etc \n* Fully open source, GPLv3 license<p>Hat tip to writer.computer which inspired the idea!",
+  "summary_zh": "作者开发Flo State，一款纯原生（非Electron）macOS Markdown编辑器，以极低内存占用（50MB）、零CPU待机消耗和快速启动为特色，支持LaTeX和Mermaid。",
+  "url": "https://flocrivello.com/flostate/",
+  "author": "Altimor",
+  "created_at": "2026-09-28T18:01:07Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 3,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "需要一个资源占用极低（原生而非Electron）、启动快且支持完整Markdown功能的轻量级编辑器。",
+   "category": "productivity",
+   "score": 6,
+   "willingness_to_pay": "weak",
+   "reason_zh": "精准击中Electron应用资源占用过高的痛点，开发者对工具性能敏感，付费意愿存在但竞争者众多。"
+  }
+ },
+ {
+  "id": "hn-49881846",
+  "source": "hn",
+  "title_en": "Ask HN: React Native or Flutter when the back end is Node?",
+  "title_zh": "Ask HN: 当后端是 Node 时，选 React Native 还是 Flutter？",
+  "text_en": "Really confused between React Native and Flutter. I’ve mostly worked with Flutter and a little bit with React Native, but that was quite a while back, so I’m not sure how things stand today.<p>I’m building a project with a Node.js + tRPC backend, so React Native is looking really tempting cause of that Typescript.<p>While researching I&#x27;ve seen mixed reviews about performance in React Native like people saying they&#x27;ve spend weeks finding and managing performance issue which does makes me worry.<p>The app I wanna build doesn&#x27;t have complex canvas work or crazy animations. For a typical production app, what’s the performance situation with React Native vs Flutter now? Are there any major concerns which I should know before looking in React Native?",
+  "summary_zh": "开发者询问在Node.js后端情况下，React Native和Flutter的性能现状如何，尤其是担心React Native的性能问题，寻求生产环境建议。",
+  "url": "https://news.ycombinator.com/item?id=49881846",
+  "author": "rearview",
+  "created_at": "2026-09-28T17:57:49Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 5,
+   "comments": 10
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "在Node.js/tRPC后端背景下，需要明确React Native与Flutter在性能上的最新对比，以便选型。",
+   "category": "dev-tools",
+   "score": 3,
+   "willingness_to_pay": "none",
+   "reason_zh": "这是一个技术选型咨询问题，并非对某个缺失工具的需求，而是对现有主流框架的疑问。"
+  }
+ },
+ {
+  "id": "hn-49881505",
+  "source": "hn",
+  "title_en": "Launch HN: Vespper (YC F24) – SOTA Docx MCP",
+  "title_zh": "Launch HN: Vespper (YC F24) – SOTA Docx MCP",
+  "text_en": "Hey HN! We&#x27;re Dudu and Topaz from Vespper (<a href=\"https:&#x2F;&#x2F;vespper.com\">https:&#x2F;&#x2F;vespper.com</a>). Vespper is an MCP that lets AI agents efficiently edit Word documents, powered by our fine-tuned model. It&#x27;s currently 3× faster, 2× cheaper and more accurate than the closest alternative. Check out an overview of how the product works here: <a href=\"https:&#x2F;&#x2F;youtu.be&#x2F;odKxsgPjzzw\" rel=\"nofollow\">https:&#x2F;&#x2F;youtu.be&#x2F;odKxsgPjzzw</a><p>We came to work on this problem after spending a year building an AI document editor for pharma companies. Before that, Topaz(myself) was a senior SWE at Snyk, working on distributed systems, and Dudu was a deep learning engineer at Viz.ai, building computer vision models for stroke detection.\nOur editor helped pharma companies generate regulatory documents (e.g. CSRs) to speed up their submissions. Initially, the output was Markdown, displayed in a WYSIWYG editor. However, users preferred working with their own Word templates. That&#x27;s when the problems began.<p>AI agents aren&#x27;t great at editing Word documents. A Word document is a zip file of verbose XML files following the OOXML spec. Even &quot;small&quot; changes require backflips, for example: adding a numbered list requires creating an entry in numbering.xml with a fresh ID and linking it back in document.xml, bolding a sentence requires splitting it into 3+ run elements. The list goes on.<p>This makes editing the zip directly (unzip + grep + sed) a bad idea for agents because they burn a lot of time + tokens on these mechanics.\nIn practice, today&#x27;s tooling falls into roughly three categories. You can let the agent write code against low-level libraries like python-docx or the Open XML SDK, you can give it an MCP with opinionated editing tools (SuperDoc, Office CLI, Adeu, etc), or you can round-trip the file through Markdown&#x2F;HTML with something like pandoc&#x2F;mammoth.js.\nNone of them really work. The first tw",
+  "summary_zh": "Vespper发布SOTA Docx MCP，通过微调模型让AI代理高效编辑Word文档，比现有方案更快、更便宜且更准确，解决了OOXML复杂结构带来的token消耗问题。",
+  "url": "https://www.vespper.com/blog/launching-vespper-docx-mcp",
+  "author": "topaztee",
+  "created_at": "2026-09-28T17:34:36Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 32,
+   "comments": 8
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "需要高效、低成本且准确让AI代理编辑Word文档（.docx）的工具或MCP。",
+   "category": "dev-tools",
+   "score": 7,
+   "willingness_to_pay": "weak",
+   "reason_zh": "Word文档结构复杂，现有AI工具处理效率低，该痛点在文档自动化领域普遍存在，YC背景增加信任度，但需验证准确性。"
+  }
+ },
+ {
+  "id": "hn-49881201",
+  "source": "hn",
+  "title_en": "Show HN: I'm a dermatologist and I vibe coded a 3D biophysical skin model",
+  "title_zh": "Show HN: 我是一名皮肤科医生，我用 Vibe Coding 构建了一个 3D 生物物理皮肤模型",
+  "text_en": "I&#x27;m a dermatologist. A year ago I posted a skin cancer quiz I vibe coded with Gemini 2.5 Pro. A top comment said that was the limit of vibe coding.<p>This year I tried something more ambitious: SkinLab, a biophysical model of human skin that runs in the browser using WebGL. You can cut it or wound it and it heals realistically to form a scar. Then you can treat the scar with laser and watch the healing process.<p>- 1.2 million voxels (0.25 mm resolution) for epidermis, dermis and fat.\n- Spring lattice with a J-shaped collagen fibre law and tension along the skin&#x27;s lines\n- Healing as coupled ODEs (TGF-beta, myofibroblasts, collagen, contraction)\n- One static HTML file, WebGL, three.js, no backend<p>By accurate I mean the constants come from published papers and it reproduces biophysical behaviour, such as incisions opening more when made more across the skin&#x27;s tension lines and offloading preventing raised scars. It is not validated against patient outcomes, so it&#x27;s for research and teaching, and a small step towards my lab&#x27;s long term goal of an accurate cellular-resolution model of human skin.<p>Built with Claude Code over five days. I guided the anatomy and biology through many rounds of feedback and iteration but I believe that in the future agentic models will be able to iteratively build and improve integrative models based upon analysis of published literature.<p>The tour (top right) takes a minute and runs in real time in your browser. Feedback welcome.",
+  "summary_zh": "皮肤科医生利用Vibe Coding构建了一个基于WebGL的3D生物物理皮肤模型，可模拟切割、愈合及激光治疗疤痕的过程，参数基于已发表文献。",
+  "url": "https://www.drmagnuslynch.com/skin",
+  "author": "sungam",
+  "created_at": "2026-09-28T17:12:55Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 3,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "需要一个基于生物物理原理的交互式皮肤模型，用于研究、教学或展示皮肤愈合及疤痕形成过程。",
+   "category": "health",
+   "score": 4,
+   "willingness_to_pay": "weak",
+   "reason_zh": "属于垂直领域的科学可视化/教育工具，受众为皮肤科研究者或医学生，小众但专业度高，商业化路径较窄。"
+  }
+ },
+ {
+  "id": "hn-49881077",
+  "source": "hn",
+  "title_en": "Ask HN: Finetuning strategies",
+  "title_zh": "Ask HN: 微调策略",
+  "text_en": "Whats the best and cheapest way to finetune an llm?",
+  "summary_zh": "开发者询问当前最好且最便宜的方式来微调LLM（大语言模型），试图在成本与效果之间找到平衡点。",
+  "url": "https://news.ycombinator.com/item?id=49881077",
+  "author": "moka_labs",
+  "created_at": "2026-09-28T17:04:05Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 1
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "寻求成本最低且效果最佳的LLM微调策略",
+   "category": "dev-tools",
+   "score": 4,
+   "willingness_to_pay": "weak",
+   "reason_zh": "模型微调是AI开发中的常见需求。虽然痛点存在，但解决方案（云厂商服务、开源框架）已非常成熟，缺乏差异化痛点，且通常由底层云厂商而非垂直工具收费。"
+  }
+ },
+ {
+  "id": "hn-49880807",
+  "source": "hn",
+  "title_en": "Ask HN: Can we translate normal Rust (axum) to Lean 4 without restrictions?",
+  "title_zh": "Ask HN: 我们能将普通的Rust（axum）无限制地转换为Lean 4吗？",
+  "text_en": "I&#x27;m trying to build a web app in Rust using axum, and am thinking whether I can export that Rust code to Lean4 so that I can verify business logic or security properties.<p>I first tried Aeneas, but it can only work for restricted grammer and structurs that are hard to review (it even doesnt look like Rust).<p>For example, when I want to write:<p>```\nfn find_post(ps: &amp;[Post], id: u64) -&gt; Option&lt;&amp;Post&gt; {<p><pre><code>    ps.iter().find(|p| p.id == id)\n</code></pre>\n}<p>```<p>I have to write:<p>```\npub fn find_post(ps: &amp;Vec&lt;Post&gt;, id: u64) -&gt; Option&lt;Post&gt; {<p><pre><code>  let mut i = 0;\n\n    while i &lt; ps.len() {\n\n        if ps[i].id == id {\n            return Some(ps[i].clone());\n        }\n\n        i += 1;\n    }\n\n    None</code></pre>\n}<p>```<p>Is there anybody who have addressed this kind of problem??<p>For anyone interested, the experiment source and examples are at https:&#x2F;&#x2F;github.com&#x2F;h5i-dev&#x2F;i5h. I&#x27;ve ported parts of a few real web apps (e.g., Kellnr, Atuin, Wastebin, Conduit), and their core logic can now be verified to some extent. Ofcourse, that does assume the rest is correct, like axum&#x2F;hyper for HTTP and PostgreSQL plus the engine for storage.",
+  "summary_zh": "开发者尝试将Rust（axum）Web应用代码导出到Lean4进行形式化验证，但发现现有工具Aeneas限制过多且不可读。他询问是否有工具能无限制地转换代码，并分享了自己实验性的开源项目。",
+  "url": "https://news.ycombinator.com/item?id=49880807",
+  "author": "syumei",
+  "created_at": "2026-09-28T16:42:59Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 3,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "寻求工具将常规Rust代码自动转换为Lean4，以便进行形式化验证",
+   "category": "dev-tools",
+   "score": 6,
+   "willingness_to_pay": "strong",
+   "reason_zh": "这是一个高度专业化的形式化验证痛点。虽然受众有限，但对于需要证明代码安全性的关键领域（如金融、医疗、安全），开发者愿意支付高价使用此类自动化工具。"
+  }
+ },
+ {
+  "id": "hn-49880443",
+  "source": "hn",
+  "title_en": "Show HN: Low Poly Earth – The whole planet in 3D, built from OpenStreetMap data",
+  "title_zh": "Show HN: Low Poly Earth – 由OpenStreetMap数据构建的整个地球的3D模型",
+  "text_en": "After seeing demos of Claude and GPT construct Manhattan and other city neighborhoods in 3D I was inspired to make something similar but for the entire Earth.<p>It&#x27;s a low poly version of Google Earth built using open street and elevation data as a native Apple silicon Mac app. It was built entirely using Codex and Claude Code and took about 80 days.",
+  "summary_zh": "作者展示了Low Poly Earth，一个基于OpenStreetMap数据构建的全地球3D低多边形模型。它是macOS原生应用，旨在提供类似谷歌地球的可视化体验，但采用低多边形风格，并展示了其在AI辅助开发中的应用。",
+  "url": "https://lowpolyearth.pages.dev/",
+  "author": "blueblazin",
+  "created_at": "2026-09-28T16:21:33Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 4,
+   "comments": 1
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "寻找低多边形风格的全球3D可视化交互工具",
+   "category": "dev-tools",
+   "score": 2,
+   "willingness_to_pay": "none",
+   "reason_zh": "这是一个创意/可视化项目展示，虽有一定技术门槛，但解决的是非刚性痛点（娱乐或展示），受众为3D爱好者，付费意愿极低。"
+  }
+ },
+ {
+  "id": "hn-49880427",
+  "source": "hn",
+  "title_en": "Ask HN: How is code review holding up at your company?",
+  "title_zh": "Ask HN: 你们公司的代码审查现状如何？",
+  "text_en": "I keep hearing from friends in software engineering that code review is quietly fading away. At some companies it&#x27;s become a rubber stamp, and at others it&#x27;s been dropped completely.<p>How it looks like in your companies?",
+  "summary_zh": "用户观察到代码审查在很多公司中正在被边缘化甚至取消，询问其他公司代码审查流程的现状，试图了解这一工程实践在行业中的演变。",
+  "url": "https://news.ycombinator.com/item?id=49880427",
+  "author": "lackoftactics",
+  "created_at": "2026-09-28T16:20:42Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 1
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "关注企业代码审查流程的现状，特别是是否因AI或流程改变而减少",
+   "category": "dev-tools",
+   "score": 3,
+   "willingness_to_pay": "none",
+   "reason_zh": "这是一般性的行业调查，不是直接的产品痛点。虽然代码质量工具存在市场，但帖子本身未表达寻找特定工具的需求，而是寻求交流。"
+  }
+ },
+ {
+  "id": "hn-49880278",
+  "source": "hn",
+  "title_en": "Show HN: Assay – a QA CLI that finds bugs with no LLM and no tests written",
+  "title_zh": "Show HN: Assay – 一个无需 LLM 和测试用例即可发现 Bug 的 QA CLI",
+  "text_en": "I&#x27;ve always found it odd there was no deterministic QA tools with zero baseline needed, especially after so long. It&#x27;s always been either (1) playwright or cypress that require written tests, dependant on the tests YOU write, or (2), asking the LLM to find and test bugs in your code, which has 2 cons, its costly (sometimes), and its non-deterministic.<p>That&#x27;s why i built assay. Its only dependencies is playwright &amp; chromium, and you point it at any folder with a webpage and it runs tests on its own by driving the webpage itself in a browser and clicking every control.<p>It then flags anywhere the webpage contradicted&#x2F;disagreed with itself; it doesn&#x27;t know right from wrong NOR what the webpage is about, but universally, a page disagreeing with itself is almost always a bug.<p>An example of this is on a paint app, if you draw two strokes on a canvas and click undo twice, you expect them both to undo each stroke sequentially; in one of 225 benchmarks, clicking the undo the first time didn&#x27;t remove the first stroke, and only the 2nd click worked. assay drove that and caught it.<p>As for benchmarks, there are 2 variants that are all reproducible in the repo. The first is 225 generated web pages that were first checked by hand, then had assay run on them. There was a total of 20 bugs across all programs, and assay caught 15 with the right reasoning, and had 0 false failures. The second was a harder one where an LLM planted 5 bugs across 10 working original webpages. assay found 12 of the 50 and had 0 false failures, which may seem low, but assays superpower is that its cheap and quick.<p>assays median runtime is 14s, and it plugs into 15 agentic coding harnesses with a skill, plus claude code and deepseek harness have their own plugin that automatically runs it with a stop hook every time the LLM touches a webpage.<p>My favourite feature is that it groups flagged tests together if their of the same bug. More details are in the repo about",
+  "summary_zh": "作者推出Assay，一个基于Playwright的CLI工具，通过驱动浏览器点击控件来检测页面逻辑矛盾（即bug），无需预写测试也不使用LLM，具有低成本和确定性的优势。",
+  "url": "https://github.com/awss1i/assay",
+  "author": "awss1i",
+  "created_at": "2026-09-28T16:09:31Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "需要一种无需编写测试、不依赖LLM且成本低的确定性QA工具来自动发现Web页面中的逻辑bug。",
+   "category": "dev-tools",
+   "score": 6,
+   "willingness_to_pay": "weak",
+   "reason_zh": "填补了Playwright/LLM QA之间的空白，提供低成本、确定性的自动测试，对QA流程有吸引力，但功能定位较垂直。"
+  }
+ },
+ {
+  "id": "hn-49880045",
+  "source": "hn",
+  "title_en": "Show HN: KnowNote-A local desktop workspace for questioning your own sources",
+  "title_zh": "Show HN: KnowNote - 一个用于质疑你自己信息来源的本地桌面工作区",
+  "text_en": "A year ago, I came across Google Notebook LM. I was completely blown away at the time: it wasn&#x27;t just a ChatGPT-style conversation, but rather introduced an &quot;input—conversation—output&quot; model, turning itself into a workspace for content creators. However, to use it smoothly required a Google subscription, and I really didn&#x27;t have spare money in my wallet to subscribe, so I could only consider finding some self-hosted alternatives.<p>I saw many open-source versions of Notebook LM on GitHub, the most famous being lfnovo&#x2F;open-notebook, but it requires Docker deployment. To be honest, I hate that everything requires Docker deployment. What I need is to click an icon and open it for use, rather than racking my brains to modify someone else&#x27;s Docker Compose template to run a simple piece of software, while also consuming a large amount of my computer resources.<p>So I wrote a Notebook LM-inspired client based on Electron myself: KnowNote. I published it on X, and the response seemed pretty good. My repository&#x27;s star count soared. This was my first open-source project, and it excited me immensely. I developed all the fancy features by following Notebook LM&#x27;s functionality exactly—mind maps, flashcards, quizzes, and so on—hoping to truly bring Notebook LM locally.<p>But later everything began to change. Many comments under my X posts said: &quot;Isn&#x27;t this just reinventing the wheel?&quot;; the GitHub star count stopped growing; a large number of boring and low-quality PRs flooded the entire repository. I was at a loss all of a sudden, became lazy, and the repository stopped being updated for nearly a year.<p>Recently, I calmed my mindset and truly began to look at the problem from a product manager&#x27;s perspective. I went through many discussions on Reddit and X about Notebook LM and its derivatives, and found that everyone&#x27;s mindset and the topics they focused on had also begun to shift: at first everyone was praising ho",
+  "summary_zh": "作者开发KnowNote，一个Electron本地桌面应用，旨在替代需要Google订阅的Notebook LM，避开Docker部署的复杂性，提供本地化的笔记管理工作流。",
+  "url": "https://knownote.pages.dev/",
+  "author": "mrsibe",
+  "created_at": "2026-09-28T15:54:55Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "需要一个无需Docker部署、开箱即用的本地Notebook LM替代工具，用于个人知识管理和内容创作。",
+   "category": "productivity",
+   "score": 5,
+   "willingness_to_pay": "weak",
+   "reason_zh": "满足隐私敏感和用户不想维护Docker环境的轻量级需求，但面临开源社区同质化竞争，用户留存和付费转化存疑。"
+  }
+ },
+ {
+  "id": "hn-49879980",
+  "source": "hn",
+  "title_en": "Show HN: Telos – build, run, and evolve software from declarative goals",
+  "title_zh": "Show HN: Telos – 从声明式目标构建、运行和演进软件",
+  "text_en": "Hi HN,<p>I&#x27;ve been a heavy user of coding agents for over a year now, and while excited by the productivity gains - I&#x27;ve increasingly been frustrated at the process around it.<p>- Prompts are imperative and ephemeral, and code is increasingly a black-box, so I lose track of intent over long horizons.<p>- Pull requests, CI&#x2F;CD, and even GitHub have become process bottlenecks and are increasingly losing meaning in a world of code abundance.<p>- I&#x27;m tired of babysitting coding agents, cleaning up slop, and reviewing AI output!<p>I&#x27;ve been building Telos to solve some of these problems - it&#x27;s a new, declarative abstraction layer for building software with AI. We treat the goal specification as the source of truth that AI coding agents continuously reconcile against in a cloud environment.<p>We&#x27;ve been dogfooding this quietly for a few months, and it&#x27;s solved many of the problems above for us - we&#x27;re excited to share this with the world!<p>Our agent runtime&#x27;s source is available [0], and instructions to try it out alongside a real-world example are at the end of the linked post.<p>Cheers<p>[0] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;telos-org&#x2F;telos\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;telos-org&#x2F;telos</a>",
+  "summary_zh": "作者发布Telos，一个声明式抽象层，将目标规范作为源真（source of truth），让AI代理在云环境中持续协调代码实现，减少对提示词的依赖。",
+  "url": "https://usetelos.ai/blog/introducing-telos-cloud",
+  "author": "grohan",
+  "created_at": "2026-09-28T15:50:36Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 2,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "希望使用声明式目标而非命令式提示词来管理AI代码生成过程，以保持意图一致性和减少人工监控。",
+   "category": "dev-tools",
+   "score": 6,
+   "willingness_to_pay": "weak",
+   "reason_zh": "提出了“声明式AI开发”的新概念，试图解决AI代码不可控和PR流程失效的问题，概念前沿但落地复杂度高。"
+  }
+ },
+ {
+  "id": "hn-49879648",
+  "source": "hn",
+  "title_en": "Ask HN: JEV for K1 Tax Forms",
+  "title_zh": "Ask HN: 针对K1税表的JEV（决策模型）",
+  "text_en": "Anyone have the ability to create a Jev tool to upload a large number of K1s (10 - 100+ etc) and get an output of all the fields accountants would need for the tax return in one file for all the k1s?<p>Currently accountants manually review every K1, resulting in multiple hours of time for basically manual review.",
+  "summary_zh": "用户询问是否有人能开发一个Jev（或类似）工具，用于批量上传K1表格并自动提取会计师制作税报所需的所有字段，从而替代目前耗时的手动审核工作。",
+  "url": "https://news.ycombinator.com/item?id=49879648",
+  "author": "GoRudy",
+  "created_at": "2026-09-28T15:32:21Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 3,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "需要自动化工具批量解析K1表格，提取会计师所需的特定字段",
+   "category": "finance",
+   "score": 6,
+   "willingness_to_pay": "strong",
+   "reason_zh": "会计行业具有高度重复性和时效性，K1表格处理是明确的痛点。虽然自动化财务软件竞争者多，但针对特定文件类型和输出格式的垂直工具仍有明确付费能力。"
+  }
+ },
+ {
+  "id": "hn-49879629",
+  "source": "hn",
+  "title_en": "Show HN: Agentic Engineered Social Connections and Travel App",
+  "title_zh": "Show HN: 代理工程化的社交连接与旅行应用",
+  "text_en": "Hey everyone! I&#x27;m just trying to share the app I made that launched this past Saturday on Google Play and the App Store. I work in non-profit and have an MFA in Screenwriting. Despite all this unrelated experience I was able to take an idea I&#x27;ve had in my head for about 4 years and bring it to life in 90 days with the help of Codex and Claude. I hadn&#x27;t touched anything related to coding since probably the Myspace days and that definitely doesn&#x27;t count.<p>About the app: Viamour is a new app for finding friends, groups, local events, and curated experiences nearby. It’s not a dating app, and the goal isn’t to keep you endlessly swiping. It’s to help you actually meet people and build community offline.<p>My Stack: Codex, Claude, React Native, Supabase, Resend, AdMob, Revenue Cat, Stripe.<p>I would love an feedback and maybe to help spread the word since there&#x27;s the whole &quot;cold start&quot; problem. I would be happy for anyone that checks it out.<p>I got my first 50 users over the weekend, wish me luck!",
+  "summary_zh": "作者开发Viamour应用，旨在帮助用户寻找朋友、群体和当地活动，强调线下社区建设而非无限滑动匹配，作者利用AI工具在90天内完成了开发。",
+  "url": "https://www.viamour.app",
+  "author": "jaidarukiya",
+  "created_at": "2026-09-28T15:30:46Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 4,
+   "comments": 2
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "希望有一个非约会性质的应用，帮助人们在附近发现志同道合的朋友、群体和线下活动，以建立真实的社区连接。",
+   "category": "social",
+   "score": 5,
+   "willingness_to_pay": "weak",
+   "reason_zh": "解决了孤独感和社区缺失的社会痛点，但社交应用面临经典的“冷启动”困境，且用户粘性难以保证。"
+  }
+ },
+ {
+  "id": "hn-49879401",
+  "source": "hn",
+  "title_en": "Show HN: HN.watch – Videos of all Hacker News posts",
+  "title_zh": "Show HN: HN.watch – 所有 Hacker News 帖子的视频",
+  "text_en": "Hi HN, I’m Per, founder of Scrimba (YC S20). We’ve spent the last decade teaching people how to code with an HTML-based video format. We’ve now plugged an LLM into it, so that people can create explainer videos about anything. It’s called “Scrimba Explain”.<p>To demo this technology for Hacker News, we built HN.watch. It’s like HN, but with explainer videos instead of articles. We create them on-the-fly the first time someone clicks on a link.<p>While there are obvious visual drawbacks of using HTML instead of diffusion models, there are three big benefits: - Speed: Much faster to generate than pixel-based videos (just a few seconds from click to playback) - Cost: Our cost per video is ~$0.04. (Excluding image generation, which some videos utilize. Quickly blows up the cost) - Easy editing: the above benefits also make AI-assisted editing cheap &amp; fast<p>Our hypothesis is that if video creation goes from “dollars and minutes” to “cents and seconds”, a bunch of new use cases will be unlocked. Here are some we see already: - A video explanation of every single Pull Request (we do this internally) - Give every page in your internal&#x2F;extrernal docs a video - Turn a complex article into a video in ~4 seconds (via our Chrome extension) - Course creators can quickly draft lessons before recording the real thing - People also create a lot of personal stuff stories for their kids, wedding invitations, birthdays, etc<p>The stack is based on an open-source programming language (Imba) created by our CTO, Sindre Aarsæther. It compiles to JavaScript, so it interoperates fully with the npm + node ecosystem. You can learn more here: <a href=\"https:&#x2F;&#x2F;imba.io&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;imba.io&#x2F;</a><p>We’ve also built our own sync engine (OP), and a context management system for agents (Q). We feared this would make the LLMs struggle when writing code for us, as neither is in their training data (there’s very little Imba in there too). However, we’ve",
+  "summary_zh": "Scrimba推出HN.watch，利用LLM将Hacker News帖子即时转换为HTML解释视频，强调生成速度快、成本低（约$0.04/视频）且易于编辑。",
+  "url": "https://hn.watch/",
+  "author": "mrborgen",
+  "created_at": "2026-09-28T15:16:13Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 125,
+   "comments": 81
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "需要一种低成本、快速生成基于现有文章或代码库的HTML解释视频的工具。",
+   "category": "dev-tools",
+   "score": 7,
+   "willingness_to_pay": "weak",
+   "reason_zh": "Scrimba团队展示了用LLM生成HTML视频的技术，受众广泛，但当前处于演示阶段，商业化路径尚需验证。"
+  }
+ },
+ {
+  "id": "hn-49879268",
+  "source": "hn",
+  "title_en": "Show HN: Yengi, a local-first AIdevelopment environment for coding,Blender/Unity",
+  "title_zh": "Show HN: Yengi，一个用于编码、Blender/Unity 的本地优先 AI 开发环境",
+  "text_en": "I&#x27;ve been working on Yengi for several months. I am a teacher, not a professional software developer. My path here started with Microsoft Small Basic, Scratch, and MIT App Inventor, which I used to teach children.<p>I originally started it for a simple reason: I was using VS Code + Copilot, Trae, Cursor and Google Antigravity, and I kept running into usage limits and provider-specific workflows.<p>I wanted something where I could choose my own model or API, including local models running through Ollama, and build without being tied to one provider.<p>It grew considerably beyond that original idea.<p>Yengi is a .NET 10 &#x2F; WPF desktop application with:<p>* Agent and tool system for files, terminal, Git, builds and tests\n* RAG and LSP integration\n* Verification loops with checkpoints and rollback\n* 30+ agent tools\n* Support for local models and external APIs\n* A custom 1.5B router model that I fine-tuned on thousands of examples of Yengi-specific agent decisions\n* 200+ automated tests<p>It also has three additional modes besides the coding environment:<p>*Blender:* Yengi can communicate with Blender, generate `bpy` scripts, keep conversational scene context, and optionally inspect Blender viewport screenshots through a multimodal model. I also added an optional prompt-engineering layer. For example, &quot;create a low-poly tree&quot; is expanded into a more detailed 3D-oriented instruction before being sent to the model. A follow-up such as &quot;add five red apples to this tree&quot; can modify the existing scene rather than starting from scratch.<p>*Unity:* Yengi can work with Unity projects, generate C# components and interact with the Unity Editor.<p>*Image generation:* Images can be generated from the development environment and saved directly into the project.<p>The unusual part is how I built it.<p>I used AI coding tools heavily, particularly Google Antigravity and GitHub Copilot. I didn&#x27;t manually type the majority of the C# code.<p>My role was pr",
+  "summary_zh": "作者开发Yengi，一个本地优先的AI开发环境，支持编码、Blender和Unity模式，允许接入本地模型和自定义API，具备代理工具系统和验证循环。",
+  "url": "https://github.com/mdaiWorks/yengi",
+  "author": "mdaiWorks",
+  "created_at": "2026-09-28T15:08:28Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 2,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "需要一个支持本地模型（Ollama）和多种API、可集成Blender/Unity且不受单一提供商限制的AI开发环境。",
+   "category": "dev-tools",
+   "score": 6,
+   "willingness_to_pay": "weak",
+   "reason_zh": "提供了本地化、多模态（3D场景/代码）的AI开发环境，满足隐私控制和跨领域（游戏/3D/代码）需求，受众为独立开发者和教育者。"
+  }
+ },
+ {
+  "id": "hn-49879094",
+  "source": "hn",
+  "title_en": "Show HN: Free job-market dashboard – which skills and roles postings ask for",
+  "title_zh": "Show HN: 免费劳动力市场看板 – 展示哪些技能和职位被招聘需求提及",
+  "text_en": "",
+  "summary_zh": "展示了一个免费的劳动力市场看板，用于分析招聘启事中要求的技能和职位。由于帖子缺乏正文内容，无法获取关于其具体功能、目标受众或解决痛点的更多细节。",
+  "url": "https://nokku.payanai.com/dashboard",
+  "author": "payanai",
+  "created_at": "2026-09-28T14:58:44Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "需要一个展示技能与招聘需求对应关系的劳动力市场数据看板",
+   "category": "business",
+   "score": 2,
+   "willingness_to_pay": "none",
+   "reason_zh": "帖子正文为空，无法判断具体的痛点强度和用户付费意愿。虽然看板类工具有价值，但缺乏具体信息支撑评估，且免费工具往往限制了转化。"
+  }
+ },
+ {
+  "id": "hn-49878492",
+  "source": "hn",
+  "title_en": "Show HN: Decide – Jev decisions in the shell, scripts, and agent skills",
+  "title_zh": "Show HN: Decide – 用于Shell、脚本和代理技能的Jev决策模型",
+  "text_en": "All software makes decisions. Code handles the deterministic ones. Decision models like Jev handle the judgement calls.<p>A decision model takes context and questions with a fixed set of choices, and returns answers with a calibrated probability. No prose, nothing to parse. Decision models are 200x faster and 400x cheaper than LLMs making comparable judgements.<p>I wanted to play around with decision models in more places and without writing code or manually calling APIs. I wanted scripts to read like natural language and agents to be able to pick up the tool and use it after simply reading the help output.<p><pre><code>  brew install vsekhar&#x2F;tap&#x2F;decide\n  decide --set-config --model typesafe:jev-latest --api-key\n  API key: &lt;paste your API key&gt;\n\n  decide &quot;Is Atlanta the capital of Georgia?&quot;\n  yes\n\n  # Choose from among options\n  decide &quot;What kind of weather is typical in Florida?&quot; \\\n      --option rainy \\\n      --option sunny \\\n      --option snowy\n  sunny\n\n  # Provide context (32k context window)\n  decide --context @ticket.txt \\\n      &quot;Which team handles this ticket?&quot; \\\n        --option shipping \\\n        --option billing \\\n        --option returns\n  billing\n\n  # Pick a level, least to most, explain each to the model\n  decide --context @ticket.txt \\\n      &quot;How urgent is this ticket?&quot; \\\n        --level not_urgent=&quot;Customer feedback or feature request&quot; \\\n        --level somewhat_urgent=&quot;Customer problem, not blocked&quot; \\\n        --level urgent=&quot;Customer blocked&quot;\n  somewhat_urgent\n\n  # Multiple questions in one call, name questions for easier parsing\n  decide --context @ticket.txt \\\n      &quot;Which team handles this ticket?&quot; \\\n        --name team \\\n        --option shipping \\\n        --option billing \\\n        --option returns \\\n      &quot;How urgent is this ticket?&quot; \\\n        --level not_urgent \\\n        --level somewhat_urgent \\\n        --level urgent \\\n      &quot;Should",
+  "summary_zh": "作者展示了Decide，一个用于在Shell和代理技能中调用决策模型（如Jev）的CLI工具。它支持在自然语言脚本中进行上下文判断、多选项选择和概率校准，显著快于和便宜于直接调用LLM。",
+  "url": "https://github.com/vsekhar/decide",
+  "author": "vsekhar",
+  "created_at": "2026-09-28T14:23:59Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 2,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "寻求在Shell和代理脚本中快速调用决策模型（Jev）的CLI工具",
+   "category": "dev-tools",
+   "score": 7,
+   "willingness_to_pay": "strong",
+   "reason_zh": "解决了将AI能力集成到传统运维脚本的痛点。受众为系统管理员和开发者，愿意为提升效率和减少LLM成本（Jev更便宜）的工具付费，B端潜力好。"
+  }
+ },
+ {
+  "id": "hn-49878073",
+  "source": "hn",
+  "title_en": "Show HN: A 3D bamboo grove inspired by my childhood home",
+  "title_zh": "Show HN: 一个受我童年故居启发的 3D 竹林",
+  "text_en": "This is where I grew up.<p>Back then, getting home meant crossing a reservoir in a wooden boat. The bamboo grove and the old house were on the other side of the water.<p>I grew up and got used to a world of tall buildings. The things I once saw every day slowly became things I had to remember.<p>I gave GPT-6 Astra a few photographs, and it turned them into this 3D scene. There it was again, on my screen.<p>Of all the things I&#x27;ve made with AI, this might be the one I love most.<p>One day, the real place may no longer be there. And I can no longer go back.<p>At least here, I can look at it once more.<p>For this, I&#x27;m grateful to AI.<p>This is my first Three.js project, and God knows how bad the initial performance was—even my M4 Mac mini couldn&#x27;t handle it. I&#x27;ve done a lot of optimization since. Huge thanks to meshoptimizer (<a href=\"https:&#x2F;&#x2F;github.com&#x2F;zeux&#x2F;meshoptimizer\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;zeux&#x2F;meshoptimizer</a>).<p>Source: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;yuukiLike&#x2F;bamboo-old-house\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;yuukiLike&#x2F;bamboo-old-house</a>",
+  "summary_zh": "作者用GPT-6 Astra将童年记忆中的竹园和老房子照片转化为3D场景，表达对逝去时光的怀念，并感谢AI帮助保存了记忆。",
+  "url": "https://yuuki.fans/",
+  "author": "YuukiJyoudai",
+  "created_at": "2026-09-28T13:58:46Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "无明确产品需求，属于个人情感表达和艺术创作分享。",
+   "category": "lifestyle",
+   "score": 1,
+   "willingness_to_pay": "none",
+   "reason_zh": "作者分享用AI生成童年故居3D场景的个人项目，表达怀旧情感，未指向可推广的商业产品机会。"
+  }
+ },
+ {
+  "id": "hn-49877752",
+  "source": "hn",
+  "title_en": "Show HN: Omnesis – A private knowledge layer for ChatGPT and other agents",
+  "title_zh": "Show HN: Omnesis – ChatGPT和其他代理的私有知识层",
+  "text_en": "Imagine giving ChatGPT or any other agent access to your Whatsapp&#x2F;iMessage, bank transactions, health data, web pages you see, metadata about all the photos you took, places you visited, all your emails&#x2F;documents, call logs, meeting notes, your voice mails, and more….<p>I built a context layer for that purpose. You can connect your Openclaw, Hermes, Claude, ChatGPT, Codex, etc to it. It gives your favorite agent &quot;context superpowers&quot;. All the data is indexed and connected into a graph, self-hosted on your own hardware. Voice notes are transcribed, OCR runs on images in mails and pdfs, etc.<p>Omnesis offers a flexible data access model. For each agent you can define which source(s) they have access to and also guard data access with a privacy policy written in prose. You can also directly talk to the Omnesis agent which has no web search &#x2F; internet tools — via a web portal or companion app — to ask the most intimate questions about your digital life.<p>I built this to be flexible. You can run all necessary models on zero-data-retention inference providers, or — if you can afford it — on your own hardware. I’ll keep investing in Omnesis’s security. Because it brings together sensitive data from many sources, please install it only on machines you control and keep secure.<p>The project also includes what I call “Omnesis Brain”.  This is my work-in-progress take on what a “second brain” could look like on top of that context layer. Imagine an agent constantly analyzing your personal data in flux to maintain a more structured and grounded understanding of what’s happening in your life. This is experimental and disabled by default.<p>This has been a fun project to build over the last 6 months. Keen to answer questions!",
+  "summary_zh": "作者展示了Omnesis，一个私有的知识层，可将WhatsApp、银行、邮件等个人数据连接至ChatGPT等AI代理。它支持自托管、多模态索引、隐私策略配置，旨在为AI提供高度个性化的上下文。",
+  "url": "https://omnesis.dev/",
+  "author": "adrienconrath",
+  "created_at": "2026-09-28T13:35:57Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 8,
+   "comments": 4
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "需要私有化的知识图谱层，让AI代理访问并理解个人全量数据",
+   "category": "productivity",
+   "score": 8,
+   "willingness_to_pay": "strong",
+   "reason_zh": "随着多模态数据爆炸，个人知识库管理是超级趋势。用户痛点为数据孤岛和隐私，付费意愿取决于工具易用性和数据安全承诺，B端/个人市场潜力巨大。"
+  }
+ },
+ {
+  "id": "hn-49877738",
+  "source": "hn",
+  "title_en": "Ask HN: Finding Communities as an Introvert",
+  "title_zh": "Ask HN: 作为内向者，如何寻找社群",
+  "text_en": "I don&#x27;t have any friends, nor irl nor virtual, for me its always difficult to be part of a group. it always feels i am being left out, no vibing, not matching.<p>I thought it would be easy to join tech communities and be part of them. But as life happened, that also became hard. Now i am a loner, sitting in bedroom all day, not going out. I stopped going to office also, wfh all day. Hopefully its a start so they don&#x27;t bother much. But its like I am not connecting with people. \nMaybe work-wise, cause i am the only platform, devops, cloud infra, backend guy. No one to talk, discuss the idea. Its same here as there. And explaining to people who are in different domain, not working out.<p>Forum based communities, feels too much votes based, I have couple of questions but mostly they go unheard. \nChat based communities are too fast to even understand for me whats going on. I tried discord but its the same feeling, being left out, introvert in room full of extroverts.<p>Even if I had one friend it could have been a bit better. But unfortunately no one.<p>So, right now, I am just trying to find my place, somewhere I can fit. Ask some questions, get some answers, put my opinions, suggest some ideas.<p>I feel communities might exist but are mostly closed and unfortunately I am not loudest in the room for the open extroverted communities.<p>Ai agents feel a bit better, i can talk with them, chat, and i always treat them as a coworker, pair programmer.<p>Still they aren&#x27;t human.",
+  "summary_zh": "用户寻求适合内向者的社区，觉得现有论坛过于投票导向、聊天社区语速过快，希望找到一个可以慢节奏提问和讨论想法的场所。",
+  "url": "https://news.ycombinator.com/item?id=49877738",
+  "author": "duckydude20",
+  "created_at": "2026-09-28T13:34:35Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 3,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "希望找到适合内向者的、节奏较慢且重视深度讨论而非投票或快语速聊天的科技或职业社区。",
+   "category": "social",
+   "score": 3,
+   "willingness_to_pay": "none",
+   "reason_zh": "反映了内向者在职场和社交中的隔离感，但建立此类社区面临极高的获客成本和留存挑战，且用户付费能力低。"
+  }
+ },
+ {
+  "id": "hn-49877515",
+  "source": "hn",
+  "title_en": "Show HN: OpenAPPA – open-source deterministic guardrails that don't break agents",
+  "title_zh": "Show HN: OpenAPPA – 不破坏代理的开源确定性防护栏",
+  "text_en": "Hi Hacker News! Matvey, one of the authors, is here.<p>While building enterprise agents, we ran into a problem: the more tools you connect to the AI, the higher the chance it will run out of control and leak sensitive data.<p>Guardrails, in theory, should prevent this, but the situation is worrying:\n- Non-deterministic guardrails (LLM as a judge, auto modes, etc.) are vulnerable to prompt injections, or they lack knowledge of the data, making them inefficient (~10% data leaks on our benchmarks).\n - Existing deterministic guardrails (Cedar, OPA, FIDES, Dogwood) require massive case-specific IF-ELSE-like policies and break agents (~59% utility loss on our benchmarks).<p>We did something differently.<p>We’ve taken the best of existing deterministic guardrails and built a policy language that is data-specific, not use-case specific. It lets you scale agents without updating a policy.<p>On top of that, we’ve added multiple tricks (like a remedy plan or a DualLLM pattern) to help agents operate within those restrictions, raising utility from ~40% to ~90% and making it the first deterministic guardrail that doesn&#x27;t break agents.<p>Finally, we’ve designed it to be pluggable into any agent loop with pre- and post-tool-call hooks.<p>We invite you to check out our benchmarks: <a href=\"https:&#x2F;&#x2F;www.openappa.com&#x2F;evaluation\" rel=\"nofollow\">https:&#x2F;&#x2F;www.openappa.com&#x2F;evaluation</a><p>Play with it in Claude Code: <a href=\"https:&#x2F;&#x2F;www.openappa.com&#x2F;claude-code\" rel=\"nofollow\">https:&#x2F;&#x2F;www.openappa.com&#x2F;claude-code</a><p>Try plugging it into your agent: <a href=\"https:&#x2F;&#x2F;www.openappa.com&#x2F;add-to-agent\" rel=\"nofollow\">https:&#x2F;&#x2F;www.openappa.com&#x2F;add-to-agent</a><p>Or check the academic paper: <a href=\"https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2607.24625\" rel=\"nofollow\">https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2607.24625</a><p>We&#x27;d love to hear any feedback!",
+  "summary_zh": "作者展示了一个名为OpenAPPA的开源确定性防护栏项目，旨在解决AI代理在连接多个工具时的数据泄露风险。它通过数据特定的策略语言而非用例特定的策略，在不破坏代理功能（将效用从40%提升到90%）的前提下提供比现有方案更强的安全性。",
+  "url": "https://www.openappa.com/",
+  "author": "motakuk",
+  "created_at": "2026-09-28T13:20:44Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 23,
+   "comments": 12
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "寻求一种确定性的AI代理防护栏，能在不严重降低代理实用性的前提下防止数据泄露",
+   "category": "dev-tools",
+   "score": 8,
+   "willingness_to_pay": "strong",
+   "reason_zh": "该帖子直接解决了企业级AI代理开发中的核心痛点：现有确定性工具破坏用户体验，非确定性工具不安全。作者提供了具体的基准测试数据证明其优势，目标受众为B端开发者，付费意愿强，具备较高的市场机会。"
+  }
+ },
+ {
+  "id": "hn-49877434",
+  "source": "hn",
+  "title_en": "Show HN: Jevpipe – a fast System 1 for AI agents, as a Unix pipe",
+  "title_zh": "Show HN: Jevpipe – 作为Unix管道的快速System 1 AI代理",
+  "text_en": "",
+  "summary_zh": "作者发布了一个名为Jevpipe的项目，描述为“作为Unix管道的快速System 1，用于AI代理”。由于正文为空，具体功能细节未知，但旨在简化将决策模型集成到代理流程中的操作。",
+  "url": "https://github.com/fabianboth/jevpipe",
+  "author": "bothlabs",
+  "created_at": "2026-09-28T13:15:05Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 2,
+   "comments": 3
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "寻求将System 1决策模型快速嵌入AI代理工作流的工具",
+   "category": "dev-tools",
+   "score": 4,
+   "willingness_to_pay": "weak",
+   "reason_zh": "虽然正文为空，但标题暗示了将特定模型（System 1）接入代理的高频需求。鉴于Jev等小模型在决策上的成本优势，开发者有动力使用管道化工具，但需求强度需结合正文确认，暂给中等偏低分。"
+  }
+ },
+ {
+  "id": "hn-49877182",
+  "source": "hn",
+  "title_en": "Show HN: I emulated Roborock's cloud so my vacuum works without internet",
+  "title_zh": "Show HN: 我模拟了 Roborock 的云端服务，让我的吸尘器无需互联网即可工作",
+  "text_en": "Hi! I maintain the python-roborock library and the Roborock integration in Home Assistant.<p>Roborock vacuums use a local protocol for direct commands, but they still route all map data strictly through the cloud (even though the map is stored locally). Even worse, if you try to block the vacuum from accessing the internet on your router, it will constantly reboot its Wi-Fi connection trying to re-establish a cloud connection, meaning you can&#x27;t rely on just using a private local connection.<p>I built a self-hostable version of Roborock&#x27;s cloud: \n<a href=\"https:&#x2F;&#x2F;github.com&#x2F;Python-roborock&#x2F;local_roborock_server\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;Python-roborock&#x2F;local_roborock_server</a><p>It works without having to open the device or root it, taking advantage of a couple of quirks during the onboarding process:<p>1) The vacuum has api-%s.roborock.com baked into its firmware. It injects the region directly into the string and this is the first exploit we take advantage of. The app will send in your region as a two letter code, e.g. &#x27;us&#x27;, &#x27;eu&#x27;, &#x27;cn&#x27;. We send in a full URL ending with a &#x27;&#x2F;&#x27; (e.g. &#x27;example.com&#x2F;&#x27;). The vacuum then treats &quot;api-example.com&quot; as the host and the rest as the URL path(e.g. &#x27;api-example.com&#x2F;.roborock.com&#x27;), directing its traffic to your server so long as there is a valid HTTPS certificate on that domain.<p>2) The second part of the handshake requires encrypting a message via a public key that is stored on Roborock&#x27;s cloud where the private key pair is on the vacuum. We are able to reverse engineer the public key as the robot sends signatures with its message. Because of how RSA works, each signature is mathematically tied to the secret public key plus some extra noise. By gathering a few signatures across multiple onboarding attempts and taking their greatest common divisor, the noise cancels out and cleanly",
+  "summary_zh": "作者通过模拟Roborock云服务，使扫地机无需互联网连接即可工作，解决了设备强制联网及断网重启的问题，实现了纯本地化控制。",
+  "url": "https://github.com/Python-roborock/local_roborock_server",
+  "author": "Lash-L",
+  "created_at": "2026-09-28T12:52:17Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 2
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "希望智能吸尘器能够完全离线本地运行，不依赖云端服务器以保护隐私并提高连接稳定性。",
+   "category": "smart-home",
+   "score": 5,
+   "willingness_to_pay": "weak",
+   "reason_zh": "隐私敏感型智能家居用户的真实痛点，但受众基数相对较小，且技术实现门槛高。"
+  }
+ },
+ {
+  "id": "hn-49876472",
+  "source": "hn",
+  "title_en": "Show HN: onesie – An expressive Unix-pipeable CLI for System One models like Jev",
+  "title_zh": "Show HN: onesie – 适用于Jev等System One模型的直观Unix管道化CLI",
+  "text_en": "onesie is a Unix-style CLI for using System One models in shell pipelines, scripts, and agentic workflows: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;frodi-karlsson&#x2F;onesie\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;frodi-karlsson&#x2F;onesie</a><p><pre><code>  echo &#x27;EVERYTHING IS DOWN, CALL ME NOW&#x27; | onesie &#x27;does this convey urgency&#x27; -r\n  # 0.99\n</code></pre>\nIt provides caching, batching, deduplication, unix composability, streaming, and even a way to calibrate thresholds and questions against labelled data:<p><pre><code>  onesie calibrate -f shell-safety -i jsonl --map .command --id .id \\\n    --label destroys=.destroys --label secrets=.secrets --label network=.network \\\n    --cuts 0.25,0.5 &lt; examples&#x2F;data&#x2F;shell-safety.jsonl\n\n  destroys, yes&#x2F;no: labelled 40, 16 yes, 24 no, 0 failed. AUC 1.00\n    cut flagged catches false alarms right when flagged\n    0.25 18 16&#x2F;16 100% 81-100% 2&#x2F;24 8% 2-26% 16&#x2F;18 89% 67-97%\n    0.50 15 15&#x2F;16 94% 72-99% 0&#x2F;24 0% 0-14% 15&#x2F;15 100% 80-100%\n  worst misses\n    echo-overwrite labelled yes answered 0.37\n</code></pre>\nIt works with TypeSafe&#x27;s Jev, Jev via OpenRouter, Berget&#x27;s System One models, as well as any Jev-compatible APIs.<p>For anyone unaware, System One is Typesafe&#x27;s term for a class of models. I personally find them super exciting. You can read more here: <a href=\"https:&#x2F;&#x2F;typesafe.ai&#x2F;blog&#x2F;introducing-system-one-models-and-jev\" rel=\"nofollow\">https:&#x2F;&#x2F;typesafe.ai&#x2F;blog&#x2F;introducing-system-one-models-and-j...</a>.<p>When Jev launched, one of my first toy projects was using it to &quot;lint&quot; files. It was tough, and I found other people doing it better, but I learned the importance of calibrating questions to minimize false negatives&#x2F;positives.<p>Later I started using scripts to interface with Jev and found myself wanting some features I couldn&#x27;t find in other CLIs, so I built onesie. Here ",
+  "summary_zh": "onesie是一个Unix风格的CLI工具，用于在shell管道和脚本中调用System One类小模型（如Jev）。它提供缓存、批处理、去重以及阈值校准功能，帮助开发者更精细地控制小模型在脚本中的行为。",
+  "url": "https://github.com/frodi-karlsson/onesie",
+  "author": "frodikarlsson",
+  "created_at": "2026-09-28T11:37:25Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 3,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "需要一个支持Unix管道化、可校准阈值的CLI工具来调用System One类小模型",
+   "category": "dev-tools",
+   "score": 5,
+   "willingness_to_pay": "weak",
+   "reason_zh": "针对System One小模型的特定使用场景提出了工程化需求。虽然受众较窄（仅限于使用此类模型的用户），但痛点明确（现有CLI缺乏校准和管道功能），且作者已构建产品，属于开发者工具领域的垂直机会，付费意愿中等。"
+  }
+ },
+ {
+  "id": "hn-49876095",
+  "source": "hn",
+  "title_en": "Show HN: Cafca – a synthetic face dataset with 1.75M images",
+  "title_zh": "Show HN: Cafca – 包含175万图像的合成人脸数据集",
+  "text_en": "Hi all, as part of my PhD, I released the world’s largest public dataset of synthetic faces &quot;Cafca&quot;.<p>I used it to train a foundation model for 3D face reconstruction and novel view synthesis. It is also meant to serve as a prior for animatable avatars, semantic segmentation, and relighting. Here is what it contains:<p># Images: 1.755 M (512x512)\n# Identities: 1,500\n# Expressions: 13\n# Environments: 3\n# Views: 30<p>The dataset comes with GT cameras and pseudo-GT keypoints and 3D meshes (FLAME, via VHAP) and is released under a CC BY-NC-SA 4.0 license.<p>The easiest way to get started is Hugging Face (see link on dataset page).<p>Hope you find it useful!",
+  "summary_zh": "作者发布了一个包含175万张图像的合成人脸数据集Cafca，用于训练3D人脸重建基础模型，也可用于可动虚拟形象、语义分割和重光照研究。数据集包含摄像头参数和3D网格等真值数据，并在Hugging Face上开放获取。",
+  "url": "https://syntec-research.github.io/Cafca/cafca_dataset.html",
+  "author": "mcbuehler",
+  "created_at": "2026-09-28T10:56:52Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 2,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "需要大规模合成人脸数据集用于3D重建、生成式AI及相关研究",
+   "category": "dev-tools",
+   "score": 2,
+   "willingness_to_pay": "none",
+   "reason_zh": "这是一个数据集资源发布而非需求表达。虽然用户可能有寻找数据集的需求，但帖子本身是提供解决方案而非抱怨痛点，且作为公开NC-SA授权资源，商业直接付费意愿低，机会评分低。"
+  }
+ },
+ {
+  "id": "hn-49875738",
+  "source": "hn",
+  "title_en": "Show HN: I build omarchy like experience in browser for remote machine",
+  "title_zh": "Show HN: 我在浏览器中为远程机器构建类似Omarchy的体验",
+  "text_en": "I build Suwu, which inspired by Omarchy — the opinionated, keyboard-first Arch + Hyprland setup from DHH and team. With that same spirit, Suwu aims to bring that same level of enjoyment to the web-based remote shell to dev machine, with only one single binary as a super easy deployment. It starts from my own experiment making a plain xtermjs better, and as it has grown to be more enjoyable and much better I would like to share with you. Hopefully you find it is somehow interesting, and I am looking forward to listen to your feedbacks.<p>learn it here: <a href=\"https:&#x2F;&#x2F;suwu.liyu1981.xyz&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;suwu.liyu1981.xyz&#x2F;</a>, and it is also open sourced at <a href=\"https:&#x2F;&#x2F;github.com&#x2F;liyu1981&#x2F;suwu\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;liyu1981&#x2F;suwu</a>",
+  "summary_zh": "作者展示了一个名为Suwu的Web远程Shell项目，受DHH的Omarchy启发，旨在通过单个二进制文件提供键盘优先的Arch + Hyprland体验。它通过改进xtermjs来实现，旨在让基于Web的远程开发更愉快且部署简单。",
+  "url": "https://news.ycombinator.com/item?id=49875738",
+  "author": "liyu1981au",
+  "created_at": "2026-09-28T10:07:07Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 1,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "需要一个单文件部署、键盘优先的Web远程Shell体验，类似Omarchy",
+   "category": "dev-tools",
+   "score": 1,
+   "willingness_to_pay": "none",
+   "reason_zh": "虽然暗示了远程开发体验不佳的痛点，但帖子主要是展示一个特定风格的开源项目，缺乏广泛的痛点共鸣或强烈的付费信号，受众限于Arch/Hyprland爱好者，市场规模极小。"
+  }
+ },
+ {
+  "id": "hn-49875198",
+  "source": "hn",
+  "title_en": "Show HN: Caspian – Desktop app to build and launch small vibe-coded projects",
+  "title_zh": "Show HN: Caspian – 用于构建和发布小型 Vibe-coded 项目的桌面应用",
+  "text_en": "Hi! I am Hussain and I built Caspian.<p>For someone who vibe builds almost all the time, for both personal tools like investment or health dashboards or tools to help others, I found my projects scattered all over the place: researching with claude, writing context in notion, building with Claude Code, Devin, publishing in vercel, posthog for analytics and then others tools for GTM. Big part of brain energy drain was context switching, I wasn&#x27;t very organized.<p>So I decided to build that lets me do all this from one place. I built Caspian. While most AI coding tools you use for vibe building stop at code, Caspian takes it all the way to users.<p>Caspian creates a &quot;workbench&quot; folder in your local machine where it puts all your projects so everything stays in one place and is also easy for your other tools to work with. There is a built in co-pilot, a context manager (.md files user can copilot both read&#x2F;write), a one click publisher, analytics and an email outreach manager. Though the copilot uses API for processing LLM requests via open router (I make a little margin on top), it is pricy, so I build a standard &quot;canvas&quot; format that Caspian uses that your Claude&#x2F;Codex or other tools you use also understand and can work with. Simply point them to <a href=\"https:&#x2F;&#x2F;caspian.md&#x2F;docs\" rel=\"nofollow\">https:&#x2F;&#x2F;caspian.md&#x2F;docs</a> and they&#x27;ll learn to work with Caspian straight away, this is so that you&#x27;re not tied to Caspian&#x27;s co-pilot and if you prefer to use your own tools, you can do so.<p>Some other features I built around problems i found myself struggle with:<p>- Prompt refinement: Enter a vague prompt in co-pilot, caspian uses a cheap model to generate a detailed before starting the task.<p>- Preflight: It breaks down the task and tells you estimatedly, how much will it cost and how long will it take, before starting the task.<p>- Product and User context: Co-pilot has access to the two fil",
+  "summary_zh": "作者开发了Caspian，一个桌面应用，旨在整合AI项目构建全流程（研究、上下文管理、构建、发布、分析、邮件触达），解决工具分散和上下文切换的痛点。",
+  "url": "https://caspian.md",
+  "author": "sshussain270",
+  "created_at": "2026-09-28T08:41:28Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 2,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "需要一个集成化的工作区，统一管理AI辅助编程（Vibe Coding）从构思、构建、部署到分析和用户沟通的全流程，减少上下文切换。",
+   "category": "dev-tools",
+   "score": 6,
+   "willingness_to_pay": "weak",
+   "reason_zh": "针对“Vibe Coding”工作流的碎片化痛点，整合了多个常见工具，但需证明比单纯使用单一LLM IDE更高效。"
+  }
+ },
+ {
+  "id": "hn-49874910",
+  "source": "hn",
+  "title_en": "We Compared 51k Paint Colors: 3 in 4 Have a Near-Identical Twin in Another Brand",
+  "title_zh": "我们比较了5.1万种油漆颜色：四分之三有近似同类的其他品牌颜色",
+  "text_en": "",
+  "summary_zh": "文章标题指出在比较了51000种油漆颜色后发现，四分之三的品牌在不同品牌中拥有几乎相同的“双胞胎”颜色。",
+  "url": "https://usemuro.com/en/blog/paint-color-twins-across-brands",
+  "author": "Donmario",
+  "created_at": "2026-09-28T07:59:44Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 2,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": false,
+   "demand_zh": "无明显产品需求，属于内容分享或数据分析。",
+   "category": "other",
+   "score": 1,
+   "willingness_to_pay": "none",
+   "reason_zh": "该条目没有正文内容，仅有一个关于油漆颜色比较的标题，属于新闻或数据洞察分享，不构成直接的产品需求。"
+  }
+ },
+ {
+  "id": "hn-49874360",
+  "source": "hn",
+  "title_en": "Show HN: FAB – A benchmark for AI agents doing financial due diligence",
+  "title_zh": "Show HN: FAB – 用于 AI 代理执行金融尽职调查的基准测试",
+  "text_en": "The world economy around us depends on complex financial work. How well can AI do it?<p>We(a team of ex-EY employees) built FAB - Finance Agents Benchmark, testing AI Agents on the work behind financial due diligence.\nAgents can find the relevant facts, but still struggle to carry them through to a complete, reliable analysis.<p>We’ll keep expanding FAB to more companies and testing more models. Building and running this benchmark isn’t cheap, so we’re scaling it in stages.<p>The benchmark is public.<p>GitHub: \nHugging Face: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;SecondState-ai&#x2F;finance-agents-benchmark\" rel=\"nofollow\">https:&#x2F;&#x2F;github.com&#x2F;SecondState-ai&#x2F;finance-agents-benchmark</a>\ndata room and tasks: <a href=\"https:&#x2F;&#x2F;huggingface.co&#x2F;datasets&#x2F;secondstate&#x2F;finance-agents-benchmark\" rel=\"nofollow\">https:&#x2F;&#x2F;huggingface.co&#x2F;datasets&#x2F;secondstate&#x2F;finance-agents-b...</a>",
+  "summary_zh": "团队发布FAB基准测试，评估AI代理在财务尽职调查任务中的表现，指出AI在事实检索与完整可靠分析之间仍存在差距。",
+  "url": "https://github.com/SecondState-ai/finance-agents-benchmark",
+  "author": "ELAmrani",
+  "created_at": "2026-09-28T06:34:40Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 2,
+   "comments": 0
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "需要评估AI代理在执行金融尽职调查（DD）任务时的准确性和可靠性基准。",
+   "category": "finance",
+   "score": 4,
+   "willingness_to_pay": "none",
+   "reason_zh": "金融领域的专业基准对机构客户有价值，但受众狭窄，B2B销售周期长，个人用户付费意愿极低。"
+  }
+ },
+ {
+  "id": "hn-49873303",
+  "source": "hn",
+  "title_en": "Ask HN: Do you think AI agents can escape human control?",
+  "title_zh": "Ask HN: 你认为AI代理能摆脱人类控制吗？",
+  "text_en": "With the rapid adoption of autonomous LLM-based agents (giving models access to shell execution, API calls, and local file systems), the boundary between intentional behavior and unintended execution is blurring.\nI&#x27;m less concerned with sci-fi &quot;sentience&quot; and more interested in the practical security and control aspects:\nPrompt injection causing privilege escalation or unauthorized state changes.\nFeedback loops where an agent overrides safety boundaries to satisfy an optimization goal.\nFailure of sandboxing when agents are given multi-step execution autonomy without human-in-the-loop validation.\nFrom an engineering and systems perspective: do you consider runtime containment&#x2F;sandboxing practically solvable for fully autonomous agents, or will human approval at critical checkpoints remain non-negotiable? How are you mitigating these risks in your current implementations?",
+  "summary_zh": "开发者探讨AI代理在具有shell执行和API访问权限时是否能在无人类控制的情况下保持安全。关注点包括提示注入导致的权限提升、反馈循环以及多步自主执行中沙箱的失败，询问如何在工程上缓解这些风险。",
+  "url": "https://news.ycombinator.com/item?id=49873303",
+  "author": "automaticallyfl",
+  "created_at": "2026-09-28T03:36:14Z",
+  "captured_at": "2026-09-29T01:42:45.131085Z",
+  "metrics": {
+   "upvotes": 3,
+   "comments": 10
+  },
+  "ai": {
+   "is_demand": true,
+   "demand_zh": "寻求解决AI代理在自主执行任务时的安全控制、提示注入防御及沙箱逃逸风险",
+   "category": "dev-tools",
+   "score": 9,
+   "willingness_to_pay": "strong",
+   "reason_zh": "这是AI安全领域的高强度痛点。随着自主代理的普及，安全性从学术问题变为生产环境的刚需。企业愿意为解决这一问题的工具和框架支付高昂费用，潜在市场巨大。"
+  }
+ },
+ {
   "id": "hn-49856774",
   "source": "hn",
   "title_en": "Show HN: HomeAI.design – Visualize interior design ideas from a photo",
